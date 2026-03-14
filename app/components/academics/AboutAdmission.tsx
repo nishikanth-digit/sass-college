@@ -8,7 +8,7 @@ export default function AboutAdmission() {
   };
 
   return (
-    <section className="py-12 px-4 md:px-8 lg:px-12 w-full text-left bg-[var(--background)]">
+    <section className="py-12 px-4 max-w-7xl mx-auto text-left bg-[var(--background)]">
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--color-theme)]">
         Admissions 2026-27
