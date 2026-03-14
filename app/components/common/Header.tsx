@@ -109,7 +109,7 @@ export default function Header() {
             />
             <MegaDepartments />
 
-            <Link href="#" className="hover:text-theme transition">
+            <Link href="/placements" className="hover:text-theme transition">
               Placements
             </Link>
             <Link href="#" className="hover:text-theme transition">
