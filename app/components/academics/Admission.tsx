@@ -24,7 +24,6 @@ type AdmissionProgram = {
   batches: string[];
 };
 
-// --- Pink Theme Only Data Structure ---
 const ADMISSIONS_2026: AdmissionProgram[] = [
   {
     id: "btech",
@@ -69,52 +68,38 @@ export default function Admission() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--color-theme-2)]/20 font-sans">
-      {/* Background Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] blur-[120px] rounded-full opacity-15"
-          style={{ background: "var(--color-theme-2)" }}
-        />
-        <div
-          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] blur-[120px] rounded-full opacity-15"
-          style={{ background: "var(--color-theme-2)" }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-[var(--theme-bg-light)] text-[var(--color-theme)] selection:bg-[var(--color-theme-2)]/20 font-sans py-16">
+      {/* Soft Accent Glow */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-[var(--color-theme-2)]/10 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-[var(--color-theme-2)]/10 rounded-full blur-[120px] -z-10" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-20">
+      <div className="relative max-w-7xl mx-auto px-4">
         {/* Header */}
-        <header className="mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border bg-[var(--color-theme-bg-light)] border-[var(--color-theme-2)]/20">
+        <header className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6 border bg-[var(--color-theme-2)]/10 border-[var(--color-theme-2)]/20">
             <span className="relative flex h-2 w-2">
               <span
                 className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
                 style={{ backgroundColor: "var(--color-theme-2)" }}
-              ></span>
+              />
               <span
                 className="relative inline-flex rounded-full h-2 w-2"
                 style={{ backgroundColor: "var(--color-theme-2)" }}
-              ></span>
+              />
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-theme-2)]">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--color-theme-2)]">
               Admissions Open 2026-27
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 text-[var(--color-theme)]">
-            Architecting <br />
-            <span
-              className="text-transparent bg-clip-text"
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, var(--color-theme-2), var(--color-theme-2))",
-              }}
-            >
-              Tomorrow&apos;s Leaders.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-[var(--color-theme)]">
+            Architecting the Next <br />
+            <span className="text-[var(--color-theme)]/60 italic font-medium">
+              Generation of Leaders.
             </span>
-          </h1>
+          </h2>
 
-          <p className="max-w-2xl text-[var(--color-body-text)] text-lg md:text-xl font-medium leading-relaxed">
+          <p className="max-w-2xl text-[var(--color-theme)]/70 text-sm md:text-base leading-relaxed mt-5">
             Select your path and download the official 2026 brochure. Join a
             community of innovators across engineering, management, and life
             sciences.
@@ -122,7 +107,7 @@ export default function Admission() {
         </header>
 
         {/* Navigation (Tabs) */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        <div className="flex flex-wrap gap-3 mb-10">
           {ADMISSIONS_2026.map((program) => {
             const isActive = selectedTab.id === program.id;
 
@@ -130,20 +115,14 @@ export default function Admission() {
               <button
                 key={program.id}
                 onClick={() => setSelectedTab(program)}
-                className={`relative px-6 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center gap-3 border ${
+                className={`relative px-5 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center gap-3 border shadow-sm ${
                   isActive
-                    ? "bg-white border-[var(--color-theme-2)]/20 text-[var(--color-theme)] shadow-xl"
-                    : "bg-transparent border-transparent text-[var(--color-body-text)] hover:text-[var(--color-theme)]"
+                    ? "bg-white border-[var(--color-theme-2)]/30 text-[var(--color-theme)]"
+                    : "bg-white border-[var(--color-theme)]/10 text-[var(--color-theme)]/70 hover:border-[var(--color-theme-2)]/40 hover:text-[var(--color-theme)]"
                 }`}
               >
                 {isActive && (
-                  <span
-                    className="absolute inset-0 rounded-2xl opacity-10"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, var(--color-theme-2), var(--color-theme-2))",
-                    }}
-                  />
+                  <span className="absolute inset-0 rounded-2xl bg-[var(--color-theme-2)]/5" />
                 )}
 
                 <div
@@ -151,51 +130,44 @@ export default function Admission() {
                   style={{
                     color: isActive
                       ? "var(--color-theme-2)"
-                      : "var(--color-body-text)",
+                      : "var(--color-theme)",
                   }}
                 >
                   {program.icon}
                 </div>
 
-                <span className="relative z-10">{program.title}</span>
+                <span className="relative z-10 text-sm md:text-base">
+                  {program.title}
+                </span>
               </button>
             );
           })}
         </div>
 
-        {/* Main Content Area */}
+        {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left: Program Details */}
-          <div className="lg:col-span-2 space-y-8">
-            <div
-              key={selectedTab.id}
-              className="p-8 md:p-12 rounded-[2.5rem] bg-white border border-[var(--color-theme-2)]/10 shadow-2xl relative overflow-hidden group transition-all duration-300"
-            >
-              {/* Soft top pink line */}
-              <div
-                className="absolute top-0 left-0 w-full h-1"
-                style={{
-                  background:
-                    "linear-gradient(90deg, var(--color-theme-2), var(--color-theme-2))",
-                }}
-              />
+          <div className="lg:col-span-2">
+            <div className="relative p-8 md:p-10 rounded-[2rem] bg-white border border-[var(--color-theme)]/10 shadow-xl overflow-hidden transition-all duration-300">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-theme-2)]" />
 
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-theme)]">
+                <h3 className="text-2xl md:text-4xl font-bold mb-4 text-[var(--color-theme)]">
                   {selectedTab.title}
-                </h2>
+                </h3>
 
-                <p className="text-[var(--color-body-text)] text-lg mb-8 max-w-xl">
+                <p className="text-[var(--color-theme)]/70 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
                   {selectedTab.description}
                 </p>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                   {Object.entries(selectedTab.stats).map(([label, value]) => (
                     <div key={label} className="space-y-1">
-                      <div className="text-[10px] uppercase tracking-widest text-[var(--color-body-text)] font-bold">
+                      <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-theme)]/60 font-bold">
                         {label}
                       </div>
-                      <div className="text-2xl font-black text-[var(--color-theme)]">
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--color-theme)]">
                         {value}
                       </div>
                     </div>
@@ -206,11 +178,11 @@ export default function Admission() {
                   {selectedTab.batches.map((batch) => (
                     <span
                       key={batch}
-                      className="px-4 py-2 rounded-xl text-xs font-bold border"
+                      className="px-4 py-2 rounded-xl text-xs font-semibold border"
                       style={{
-                        backgroundColor: "var(--color-theme-bg-light)",
-                        borderColor: "rgba(233, 30, 99, 0.12)",
-                        color: "var(--color-theme)",
+                        backgroundColor: "white",
+                        borderColor: "rgba(27,31,59,0.08)",
+                        color: "rgba(27,31,59,0.8)",
                       }}
                     >
                       {batch}
@@ -219,7 +191,7 @@ export default function Admission() {
                 </div>
               </div>
 
-              {/* Decorative background icon */}
+              {/* Decorative Background Icon */}
               <div
                 className="absolute top-1/2 right-[-5%] -translate-y-1/2 rotate-12 scale-[3] pointer-events-none"
                 style={{ color: "var(--color-theme-2)", opacity: 0.05 }}
@@ -229,46 +201,52 @@ export default function Admission() {
             </div>
           </div>
 
-          {/* Right: Actions / Quick Links */}
+          {/* Right Side Cards */}
           <div className="space-y-6">
             {/* Apply Card */}
-            <div
-              className="p-8 rounded-[2rem] shadow-2xl group cursor-pointer overflow-hidden relative text-white"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--color-theme-2), var(--color-theme-2))",
-              }}
-            >
+            <div className="p-8 rounded-[2rem] bg-white border border-[var(--color-theme)]/10 shadow-xl relative overflow-hidden group">
+              <div className="absolute inset-x-0 top-0 h-1 bg-[var(--color-theme-2)]" />
+
               <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-2">Apply for 2026</h3>
-                <p className="text-white/80 text-sm mb-6 font-medium">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 bg-[var(--color-theme-2)]/10 border border-[var(--color-theme-2)]/20">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--color-theme-2)]">
+                    Apply Now
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2 text-[var(--color-theme)]">
+                  Apply for 2026
+                </h3>
+
+                <p className="text-[var(--color-theme)]/70 text-sm mb-6 leading-relaxed">
                   Early bird applications close on April 15, 2026.
                 </p>
-                <button className="w-full bg-white text-[var(--color-theme-2)] font-black py-4 rounded-xl flex items-center justify-center gap-2 hover:gap-4 transition-all duration-300">
+
+                <button className="w-full bg-[var(--color-theme-2)] text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:gap-4 transition-all duration-300">
                   Start Application <ArrowUpRight size={18} />
                 </button>
               </div>
-
-              <div
-                className="absolute -bottom-4 -right-4 p-12 rounded-full blur-2xl hover:scale-150 transition-transform duration-300"
-                style={{ background: "rgba(255,255,255,0.12)" }}
-              />
             </div>
 
             {/* Brochure Card */}
-            <div className="p-8 rounded-[2rem] bg-white border border-[var(--color-theme-2)]/10 hover:border-[var(--color-theme-2)]/30 transition-all duration-300 shadow-lg group">
+            <div className="p-8 rounded-[2rem] bg-white border border-[var(--color-theme)]/10 hover:border-[var(--color-theme-2)]/40 transition-all duration-300 shadow-lg group">
               <div className="flex items-center justify-between mb-6">
-                <div className="p-3 rounded-xl bg-[var(--color-theme-bg-light)] text-[var(--color-theme-2)]">
+                <div className="p-3 rounded-xl bg-[var(--color-theme-2)]/10 text-[var(--color-theme-2)]">
                   <FileDown size={24} />
                 </div>
-                <span className="text-[10px] font-black text-[var(--color-body-text)] tracking-[0.2em] uppercase">
+
+                <span className="text-[10px] font-black text-[var(--color-theme)]/60 tracking-[0.2em] uppercase">
                   PDF • 4.2 MB
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold mb-4 text-[var(--color-theme)]">
+              <h3 className="text-lg font-bold mb-3 text-[var(--color-theme)]">
                 Brochure & Curriculum
               </h3>
+
+              <p className="text-[var(--color-theme)]/70 text-sm mb-5">
+                Download the latest syllabus, curriculum, and admission details.
+              </p>
 
               <button className="text-[var(--color-theme-2)] font-bold flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300">
                 Download Syllabus <ChevronRight size={16} />
