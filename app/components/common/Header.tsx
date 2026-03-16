@@ -112,7 +112,7 @@ export default function Header() {
             <Link href="/placements" className="hover:text-theme transition">
               Placements
             </Link>
-            <Link href="#" className="hover:text-theme transition">
+            <Link href="/examinationcell" className="hover:text-theme transition">
               Examination Cell
             </Link>
             <Dropdown
@@ -221,8 +221,8 @@ export default function Header() {
             <MobileDepartments activeMobileMenu={activeMobileMenu}
               setActiveMobileMenu={setActiveMobileMenu} />
 
-            <Link href="#">Placements</Link>
-            <Link href="#">Examination Cell</Link>
+            <Link href="/placements">Placements</Link>
+            <Link href="/examinationcell">Examination Cell</Link>
             {/* TOPBAR LINKS (Mobile Only) */}
 
             <Link href="#">R & D Cell</Link>
