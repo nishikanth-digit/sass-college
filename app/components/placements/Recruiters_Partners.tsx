@@ -58,9 +58,9 @@ export default function Recruiters_Partners() {
 
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
             Connecting Talent with <br />
-            <span className="text-[var(--theme-color2)]">
+          
               Industry Leaders
-            </span>
+         
           </h2>
 
           <p className="text-gray-400 text-lg max-w-lg leading-relaxed">

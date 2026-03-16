@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-const PlacementHero: React.FC = () => {
+const AdmissionHero: React.FC = () => {
   return (
     <section className="relative h-[40vh] w-full overflow-hidden bg-[var(--color-theme)]">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/placement/Placementhero.png')`, 
+          backgroundImage: `url('/academics/academic.png')`, 
         }}
       >
         {/* Subtle Gradient Overlay */}
@@ -22,8 +22,7 @@ const PlacementHero: React.FC = () => {
           
           {/* Small, Elegant Heading */}
           <h2 className="text-sm md:text-base font-bold text-[var(--color-theme-2)] uppercase tracking-[0.3em] mb-3">
-            
-  Class of 2026 Recruitment!! <span className="text-[var(--color-footer-text)]">  Where Talent Meets Opportunity</span>
+            Calendar<span className="text-[var(--color-footer-text)]">Academic</span>
           </h2>
           
           {/* Styled Paragraph Box */}
@@ -32,7 +31,13 @@ const PlacementHero: React.FC = () => {
             <div className="absolute -inset-y-2 -inset-x-3 border border-[var(--color-footer-text)]/10 rounded bg-[var(--color-footer-text)]/[0.02] backdrop-blur-[2px]"></div>
             
             <p className="relative text-base md:text-lg text-[var(--color-footer-text)]/80 leading-relaxed font-medium italic">
-        Connecting world-class recruiters with the industry leaders of tomorrow through our dedicated and highly efficient placement cell.
+               Stay informed about the institution’s academic schedule including semester
+
+              timelines, examination periods, holidays, and important academic events.
+
+              The academic calendar helps students and faculty effectively organize
+
+              learning activities and institutional engagements throughout the year.
             </p>
           </div>
 
@@ -42,4 +47,4 @@ const PlacementHero: React.FC = () => {
   );
 };
 
-export default PlacementHero;
+export default AdmissionHero;

@@ -100,7 +100,7 @@ export default function Header() {
               title="Academics"
               items={[
                 { label: "Admissions", href: "/academics/admissions" },
-                { label: "Rules & Regulations", href: "/academics/rules-rwgulations" },
+                { label: "Rules & Regulations", href: "/academics/rules-regulations" },
                 { label: "Academic Calendar", href: "/academics/academic-calendar" },
                 { label: "Minutes Of Meeting", href: "/academics/minutes-of-meeting" },
                 { label: "Code of Conduct", href: "/academics/code-of-conduct" },
@@ -209,7 +209,7 @@ export default function Header() {
               title="Academics"
               items={[
                 { label: "Admissions", href: "/academics/admissions" },
-                { label: "Rules & Regulations", href: "/academics/rules-rwgulations" },
+                { label: "Rules & Regulations", href: "/academics/rules-regulations" },
                 { label: "Academic Calendar", href: "/academics/academic-calendar" },
                 { label: "Minutes Of Meeting", href: "/academics/minutes-of-meeting" },
                 { label: "Code of Conduct", href: "/academics/code-of-conduct" },

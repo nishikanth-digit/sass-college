@@ -35,16 +35,24 @@ const services = [
 
 export default function Study_Aboard() {
   return (
-    <section className="py-24 bg-theme-bg-light">
+    <section className="py-24 bg-[var(--theme-white)]">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-theme mb-4">
-            Graduate Study <span className="text-theme-2">Abroad Center</span>
+        {/* Updated Title to match reference style */}
+        <div className="mb-16 text-left"> {/* Changed to text-left to align with reference style */}
+          <span className="text-[var(--color-theme-2)] text-[10px] font-black uppercase tracking-[0.2em] bg-[var(--color-theme-2)]/10 px-3 py-1.5 rounded border border-[var(--color-theme-2)]/20">
+            Global Education
+          </span>
+
+          <h2 className="text-3xl md:text-5xl font-bold mt-4 leading-tight tracking-tight text-[var(--color-theme)]">
+            Graduate Study 
+           
+              Abroad Center.
+           
           </h2>
-          <div className="h-1 w-24 bg-theme-2 mx-auto rounded-full"></div>
         </div>
 
+        {/* Design remains exactly as it was */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, idx) => (
             <div

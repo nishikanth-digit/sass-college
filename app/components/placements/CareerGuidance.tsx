@@ -30,8 +30,8 @@ const CareerGuidancePage = () => {
       {/* Hero Section */}
       <section className="py-20 text-center relative">
         <div className="max-w-3xl mx-auto px-6">
-          <h1 className="text-5xl font-extrabold mb-4 animate-fade-in-up">
-            Career <span className="text-theme-2">Guidance</span>
+          <h1 className="text-5xl font-bold mb-4 animate-fade-in-up">
+            Career Guidance
           </h1>
 
           <p className="text-lg text-body-text leading-relaxed">
