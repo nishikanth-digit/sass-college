@@ -118,11 +118,11 @@ export default function Header() {
             <Dropdown
               title="Facilities"
               items={[
-                { label: "Library", href: "/" },
-                { label: "Hostel", href: "/" },
-                { label: "Sports", href: "/" },
-                { label: "Cafeteria", href: "/" },
-                { label: "Transport", href: "/" },
+                { label: "Library", href: "/facilities/library" },
+                { label: "Hostel", href: "/facilities/hostel" },
+                { label: "Sports", href: "/facilities/sports" },
+                { label: "Cafeteria", href: "/facilities/cafeteria" },
+                { label: "Transport", href: "/facilities/transport" },
               ]}
             />
             <Link href="/contact" className="hover:text-theme transition">
@@ -234,11 +234,11 @@ export default function Header() {
             <MobileDropdown
               title="Facilities"
               items={[
-                { label: "Library", href: "/" },
-                { label: "Hostel", href: "/" },
-                { label: "Sports", href: "/" },
-                { label: "Cafeteria", href: "/" },
-                { label: "Transport", href: "/" },
+              { label: "Library", href: "/facilities/library" },
+                { label: "Hostel", href: "/facilities/hostel" },
+                { label: "Sports", href: "/facilities/sports" },
+                { label: "Cafeteria", href: "/facilities/cafeteria" },
+                { label: "Transport", href: "/facilities/transport" },
               ]}
               activeMobileMenu={activeMobileMenu}
               setActiveMobileMenu={setActiveMobileMenu}

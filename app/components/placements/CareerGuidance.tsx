@@ -35,7 +35,7 @@ const CareerGuidancePage = () => {
           </h1>
 
           <p className="text-lg text-body-text leading-relaxed">
-            Digit College of Engineering supports students with structured
+            DIGIT College of Engineering supports students with structured
             career mentoring, interview preparation, and industry readiness
             programs to ensure successful professional growth.
           </p>

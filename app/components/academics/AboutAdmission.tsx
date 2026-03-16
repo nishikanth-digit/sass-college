@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function AboutAdmission() {
   const content = {
-    body: "Begin your journey at Digit College, where academic excellence meets real-world innovation. Our admissions process is designed to identify passionate individuals who are ready to challenge the status quo and excel in their chosen fields. We offer a wide range of undergraduate and postgraduate programs, supported by world-class faculty and state-of-the-art facilities. Whether you are looking to specialize in technology, business, or the arts, we provide a streamlined enrollment path and dedicated counseling to help you make the best choice for your future career. Join a community that values curiosity, diversity, and leadership.",
+    body: "Begin your journey at DIGIT College, where academic excellence meets real-world innovation. Our admissions process is designed to identify passionate individuals who are ready to challenge the status quo and excel in their chosen fields. We offer a wide range of undergraduate and postgraduate programs, supported by world-class faculty and state-of-the-art facilities. Whether you are looking to specialize in technology, business, or the arts, we provide a streamlined enrollment path and dedicated counseling to help you make the best choice for your future career. Join a community that values curiosity, diversity, and leadership.",
   };
 
   return (
