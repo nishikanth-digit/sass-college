@@ -29,7 +29,7 @@ export default function Library() {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="mb-16 md:mb-24 max-w-2xl">
+        <div className="mb-10 md:mb-10 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--theme-color2)]/10 border border-[var(--theme-color2)]/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-[var(--theme-color2)] animate-pulse" />
             <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--theme-color2)]">
