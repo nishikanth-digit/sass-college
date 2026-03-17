@@ -77,13 +77,13 @@ export default function StudentTestimonials() {
 
                 {/* Student */}
                 <div className="flex items-center gap-4 mb-6">
-                  <Image
+                  {/* <Image
                     src="/student-placeholder.png"
                     alt={item.name}
                     width={60}
                     height={60}
                     className="rounded-full object-cover"
-                  />
+                  /> */}
 
                   <div>
                     <h4 className="font-semibold text-theme">
