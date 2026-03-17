@@ -43,7 +43,7 @@ const CareerGuidancePage = () => {
       </section>
 
       {/* Services */}
-      <main className="max-w-6xl mx-auto px-6 pb-20">
+      <main className="max-w-7xl mx-auto px-4 pb-20">
 
         <section className="grid md:grid-cols-3 gap-8 mb-16">
 

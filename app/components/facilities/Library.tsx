@@ -6,17 +6,17 @@ const libraryData = [
   {
     title: "Book Lending Services",
     description: "Access our vast collection of physical and digital resources with a seamless, user-friendly checkout process.",
-    img: "/facilities/library1.jpg"
+    img: "/facilities/lending.jpg"
   },
   {
     title: "Organized Archive & Racks",
     description: "Browse through systematically categorized aisles, ensuring you find the exact materials you need.",
-    img: "/facilities/library2.jpg"
+    img: "/facilities/racks.jpg"
   },
   {
     title: "Dedicated Study Spaces",
     description: "Immerse yourself in a quiet, ergonomic environment designed to foster deep focus and academic excellence.",
-    img: "/facilities/library3.jpg"
+    img: "/facilities/studyspaces.jpg"
   }
 ];
 

@@ -9,7 +9,7 @@ const CodeHero: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/academics/code of conduct.png')`, 
+          backgroundImage: `url('/academics/codeofconduct.png')`, 
         }}
       >
         {/* Subtle Gradient Overlay */}
@@ -31,11 +31,7 @@ const CodeHero: React.FC = () => {
             <div className="absolute -inset-y-2 -inset-x-3 border border-[var(--color-footer-text)]/10 rounded bg-[var(--color-footer-text)]/[0.02] backdrop-blur-[2px]"></div>
             
             <p className="relative text-base md:text-lg text-[var(--color-footer-text)]/80 leading-relaxed font-medium italic">
-               We are committed to providing a friendly, safe, and welcoming environment for all.
-
-              This document outlines our expectations for participant behavior and the
-
-              consequences for unacceptable behavior.
+              We are committed to a safe, welcoming environment and outline clear expectations and consequences for participant behavior.
             </p>
           </div>
 

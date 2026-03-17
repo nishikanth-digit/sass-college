@@ -1,0 +1,90 @@
+import React from 'react';
+import Image from 'next/image';
+
+const Sports = () => {
+  const sportsData = [
+    {
+      title: "Volleyball & Outdoor Sports Arena",
+      content: [
+        "Our professional-grade volleyball courts feature international standard synthetic surfaces and are fully floodlit, allowing for high-intensity matches and practice sessions well into the evening.",
+        "Beyond volleyball, our expansive outdoor sports complex supports a wide range of activities including athletics, football, and basketball. The infrastructure is meticulously maintained to provide optimal grip, safety, and performance for competitive inter-college tournaments and daily recreational play."
+      ],
+      img: "/facilities/ground.jpg"
+    },
+    {
+      title: "Indoor Games & Fitness Hub",
+      content: [
+        "Escape the elements and sharpen your strategic skills in our modern Indoor Sports Complex. We offer dedicated arenas for table tennis, badminton, and specialized zones for chess and carrom, providing a perfect balance of leisure and professional training.",
+        "Equipped with the latest fitness technology, our indoor facilities cater to both team sports and individual conditioning. Whether you are aiming for gold in an intramural championship or just looking to unwind after lectures, our climate-controlled environment ensures year-round comfort and access to premium gaming infrastructure."
+      ],
+      img: "/facilities/indoor.jpg"
+    }
+  ];
+
+  return (
+    <section className="max-w-7xl mx-auto px-4 relative z-10 py-16 space-y-20 bg-white">
+     {sportsData.map((item, index) => (
+  <div 
+    key={index}
+    className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 group"
+  >
+
+    {index % 2 === 0 ? (
+      <>
+        {/* Image LEFT */}
+        <div className="relative h-80 w-full overflow-hidden rounded-2xl">
+          <Image 
+            src={item.img} 
+            alt={item.title} 
+            fill 
+            className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+
+        {/* Content RIGHT */}
+        <div className="md:col-span-2 space-y-4">
+          <h2 className="text-4xl font-extrabold text-[var(--color-theme-2)] mb-6">
+            {item.title}
+          </h2>
+
+          {item.content.map((paragraph, pIndex) => (
+            <p key={pIndex} className="text-lg text-gray-600 leading-8">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </>
+    ) : (
+      <>
+        {/* Content LEFT */}
+        <div className="md:col-span-2 space-y-4 w-full">
+          <h2 className="text-4xl font-extrabold text-[var(--color-theme-2)] mb-6">
+            {item.title}
+          </h2>
+
+          {item.content.map((paragraph, pIndex) => (
+            <p key={pIndex} className="text-lg text-gray-600 leading-8">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {/* Image RIGHT */}
+        <div className="relative h-80 w-full overflow-hidden rounded-2xl">
+          <Image 
+            src={item.img} 
+            alt={item.title} 
+            fill 
+            className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      </>
+    )}
+
+  </div>
+))}
+    </section>
+  );
+};
+
+export default Sports;

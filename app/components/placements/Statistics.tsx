@@ -15,7 +15,7 @@ export default function Statistics() {
     <section className="min-h-screen bg-white p-6 md:p-12 text-slate-700">
 
       {/* Title */}
-      <div className="max-w-5xl mx-auto mb-14">
+      <div className="max-w-7xl mx-auto px-4 mb-14">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[var(--theme-color)]">
           Placement Statistics
         </h1>
@@ -27,7 +27,7 @@ export default function Statistics() {
       </div>
 
       {/* Table Container */}
-      <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+      <div className="max-w-7xl mx-auto px-4  rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
 
         {/* Header */}
         <div className="grid grid-cols-4 gap-4 px-8 py-6 bg-slate-100 text-sm uppercase tracking-wider font-semibold text-slate-500">
