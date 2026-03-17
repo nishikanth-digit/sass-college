@@ -369,8 +369,8 @@ function MobileDepartments({
           <Link href="#">Artificial Intelligence & Machine Learning</Link>
           <Link href="#">Data Science</Link>
           <Link href="#">Cyber Security</Link>
-          <Link href="#">Cloud Computing</Link>
-          <Link href="#">Full Stack Development</Link>
+          {/* <Link href="#">Cloud Computing</Link>
+          <Link href="#">Full Stack Development</Link> */}
           <Link href="#">Internet of Things (IoT)</Link>
         </div>
 
@@ -513,12 +513,12 @@ function MegaDepartments() {
               <Link href="#" className="hover:text-theme transition">
                 Cyber Security
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              {/* <Link href="#" className="hover:text-theme transition">
                 Cloud Computing
               </Link>
               <Link href="#" className="hover:text-theme transition">
                 Full Stack Development
-              </Link>
+              </Link> */}
               <Link href="#" className="hover:text-theme transition">
                 Internet of Things (IoT)
               </Link>
