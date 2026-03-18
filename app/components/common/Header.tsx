@@ -504,13 +504,13 @@ function MegaDepartments() {
             </h3>
 
             <div className="flex flex-col gap-2 text-sm">
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/artificialintelligence/" className="hover:text-theme transition">
                 Artificial Intelligence & Machine Learning
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/datascience/" className="hover:text-theme transition">
                 Data Science
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/cybersecurity/" className="hover:text-theme transition">
                 Cyber Security
               </Link>
               {/* <Link href="#" className="hover:text-theme transition">
@@ -519,7 +519,7 @@ function MegaDepartments() {
               <Link href="#" className="hover:text-theme transition">
                 Full Stack Development
               </Link> */}
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/internet-of-things/" className="hover:text-theme transition">
                 Internet of Things (IoT)
               </Link>
             </div>
@@ -532,19 +532,19 @@ function MegaDepartments() {
             </h3>
 
             <div className="flex flex-col gap-2 text-sm">
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/informationtechnology/" className="hover:text-theme transition">
                 Information Technology
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/electricalcommunication/" className="hover:text-theme transition">
                 Electronics & Communication Engineering
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/electricelectronic/" className="hover:text-theme transition">
                 Electrical & Electronics Engineering
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/civil/" className="hover:text-theme transition">
                 Civil Engineering
               </Link>
-              <Link href="#" className="hover:text-theme transition">
+              <Link href="/departments/mechanical/" className="hover:text-theme transition">
                 Mechanical Engineering
               </Link>
             </div>

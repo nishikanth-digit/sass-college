@@ -7,9 +7,9 @@ const digitHostelData = [
   { id: 1, campus: "DIGIT Central Hub", name: "Girls Hostel – Kamala Nehru", occupancy: 450, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
   { id: 2, campus: "DIGIT Central Hub", name: "Girls Hostel – Saraswathi", occupancy: 232, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
   { id: 3, campus: "DIGIT Central Hub", name: "Girls Hostel – Gayathri", occupancy: 300, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
-  { id: 4, campus: "DIGIT Regional A", name: "Girls Hostel", occupancy: 550, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
-  { id: 5, campus: "DIGIT Regional B", name: "Girls Hostel", occupancy: 400, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
-  { id: 6, campus: "DIGIT Regional C", name: "Girls Hostel", occupancy: 270, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
+  { id: 4, campus: "DIGIT Regional A", name: "Boys Hostel", occupancy: 550, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
+  { id: 5, campus: "DIGIT Regional B", name: "Boys Hostel", occupancy: 400, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
+  { id: 6, campus: "DIGIT Regional C", name: "Boys Hostel", occupancy: 270, facilities: "TV Hall, Dining Hall, Gymnasium, Computer Room, Reading Room" },
 ];
 
 export default function Hostel() {
