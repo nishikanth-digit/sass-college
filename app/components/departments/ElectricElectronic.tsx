@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 
-const DataScience = () => {
+const ElectricElectronic = () => {
   const [mounted, setMounted] = useState(false);
 
   const links = [
-    { title: "Artificial Intelligence", count: "01" },
-    { title: "Cyber Security", count: "02" },
-    { title: "Internet of Things", count: "03" },
-      
+    { title: "Information Technology", count: "01" },
+    { title: "Electrical & Electronics Engineering", count: "02" },
+    { title: "Civil Engineering", count: "03" },
+        { title: "Mechanical Engineering", count: "04" },
   ];
 
   useEffect(() => {
@@ -22,8 +22,7 @@ const DataScience = () => {
   return (
     <div className="min-h-screen bg-[var(--theme-bg-light)] text-slate-700 py-24 px-6 font-sans">
       
-      {/* GRID BACKGROUND */}
-     
+      {/* GRID BACKGROUND REMOVED FROM HERE */}
 
       <div className="max-w-7xl mx-auto px-4">
         
@@ -39,39 +38,38 @@ const DataScience = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-theme-2)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-theme-2)]"></span>
                 </span>
-               Data Science
+             Electrical Electronics Engineering
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold mt-4 leading-tight tracking-tight text-[var(--theme-color)]">
-               Beyond the Notebook: Taking  {" "}
+              Electrical Electronic Engineering {" "}
                 <span className="text-[var(--color-theme)]/60 italic font-medium">
-                Data Science into Production
+                  (EEE)
                 </span>
               </h1>
             </header>
 
             {/* PARAGRAPH */}
-            <p className="pl-7 text-black leading-relaxed font-sans">
-      Welcome to the department of Data Science Malla Reddy University, on behalf of the faculty members, staff, and students the field of Data Science is a diverse field which has a significant role in the development of cutting edge technology. The curriculum at the Department of Data Science is meticulously planned and continuously updated in way to incorporate the various demands of the IT industry trends. An exposure to real world problems in this era of technology is a must and every student is provided with the right environment to shape into a confident individual having the necessary skill set to fit in any role at the industrial market.
-            </p>
-
+            <p className="pl-7 text-black leading-relaxed">
+The Electrical and Electronics Engineering (EEE) landscape at Digit Engineering College has transitioned into a sophisticated era of Intelligent Energy Orchestration, where the traditional power grid has evolved into a self-healing, autonomous entity. Students are now at the forefront of the "Energy Internet," designing smart systems that utilize Agentic AI to independently balance volatile renewable energy sources with fluctuating industrial demands. The curriculum emphasizes the development of high-efficiency power electronics and advanced Battery Management Systems (BMS) that power the latest generation of humanoid robots and long-range electric vehicles.
+</p>
             {/* IMAGE */}
             <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
               <img
-                src="/departments/ds.png"
+                src="/departments/Electric.jpg"
                 alt="AI Visualization"
                 className="w-full h-[300px] object-cover bg-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-5 left-5 z-20">
-               
+                
               </div>
             </div>
 
             {/* SECOND PARAGRAPH */}
-            <p className="text-black leading-relaxed font-sans">
-he excellent infrastructure and the highly qualified faculty with huge expertise in the department lay the foundation for a professional learning experience, and the department ensures a career-oriented future through Industry internships, certification courses, and workshops. Higher Studies is a strongly recommended option for students with research aptitude and the department makes every effort to nurture this by grooming them for a research-oriented career. The members of the department are known for their unmatched determination and academic excellence.
-            </p>
+            <p className="text-black leading-relaxed">
+                By integrating Physical AI into industrial automation, EEE engineers are moving beyond manual circuit design to become the master architects of carbon-neutral microgrids and automated factory floors. This shift ensures that the modern EEE professional is not just a manager of electricity, but a strategic orchestrator of the complex, data-driven systems that sustain our global digital and physical infrastructure.
+</p>
           </div>
 
           {/* RIGHT SIDEBAR */}
@@ -83,7 +81,7 @@ he excellent infrastructure and the highly qualified faculty with huge expertise
                 {/* NAV */}
                 <div>
                   <h3 className="text-xl font-extrabold text-white uppercase tracking-widest mb-6">
-                    Computer Science and Engineering
+                    Core Engineering
                   </h3>
 
                   <nav className="space-y-3">
@@ -124,7 +122,7 @@ he excellent infrastructure and the highly qualified faculty with huge expertise
                       <div className="flex items-center gap-3">
                         <Phone className="h-4 w-4 text-[var(--color-theme-2)]" />
                         <span className="text-sm font-bold text-white  font-sans">
-                          +919990000000
+                         +919990000000
                         </span>
                       </div>
 
@@ -142,4 +140,4 @@ he excellent infrastructure and the highly qualified faculty with huge expertise
   );
 };
 
-export default DataScience;
+export default ElectricElectronic;

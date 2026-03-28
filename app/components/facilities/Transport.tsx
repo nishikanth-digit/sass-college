@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+
 
 const Transport   = () => {
   return (
@@ -29,7 +29,7 @@ const Transport   = () => {
         <div className="grid lg:grid-cols-2 gap-8">
           
           {/* Card 1 */}
-          <div className="group relative bg-theme backdrop-blur-xl border border-theme-2 p-10 rounded-[2rem] transition-all duration-700 hover:border-[var(--color-theme-2)]/50 hover:bg-white/[0.04]">
+          <div className="group relative bg-theme backdrop-blur-xl border border-theme-2 p-10 rounded-[2rem] transition-all duration-700 hover:border-[var(--color-theme-2)]/50 ">
             
             <h3 className="text-lg font-bold text-[var(--color-theme-2)] uppercase tracking-widest mb-8">
               Contact Authority
@@ -53,7 +53,7 @@ const Transport   = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group relative bg-theme backdrop-blur-xl border border-theme-2 p-10 rounded-[2rem] transition-all duration-700 hover:border-[var(--color-theme-2)]/50 hover:bg-white/[0.04]">
+          <div className="group relative bg-theme backdrop-blur-xl border border-theme-2 p-10 rounded-[2rem] transition-all duration-700 hover:border-[var(--color-theme-2)]/50 ">
             
             <h3 className="text-lg font-bold text-[var(--color-theme-2)] uppercase tracking-widest mb-8">
               Route Logistics

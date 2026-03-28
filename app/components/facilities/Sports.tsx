@@ -23,66 +23,40 @@ const Sports = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 relative z-10 py-16 space-y-20 bg-white">
-     {sportsData.map((item, index) => (
-  <div 
-    key={index}
-    className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 group"
-  >
+      {sportsData.map((item, index) => (
+        <div 
+          key={index}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 group"
+        >
+          {/* Logic: On mobile (grid-cols-1) they stack. 
+              On desktop (md:grid-cols-2) they sit side-by-side.
+              We use 'order' classes to handle the alternating layout.
+          */}
+          
+          {/* Image Container */}
+          <div className={`relative h-96 w-full overflow-hidden rounded-2xl ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+            <Image 
+              src={item.img} 
+              alt={item.title} 
+              fill 
+              className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
 
-    {index % 2 === 0 ? (
-      <>
-        {/* Image LEFT */}
-        <div className="relative h-80 w-full overflow-hidden rounded-2xl">
-          <Image 
-            src={item.img} 
-            alt={item.title} 
-            fill 
-            className="object-cover transform transition-transform duration-700 group-hover:scale-105"
-          />
+          {/* Content Container */}
+          <div className={`space-y-4 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+            <h2 className="text-4xl font-extrabold text-[var(--color-theme-2)] mb-6">
+              {item.title}
+            </h2>
+
+            {item.content.map((paragraph, pIndex) => (
+              <p key={pIndex} className="text-lg text-gray-600 leading-8">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
-
-        {/* Content RIGHT */}
-        <div className="md:col-span-2 space-y-4">
-          <h2 className="text-4xl font-extrabold text-[var(--color-theme-2)] mb-6">
-            {item.title}
-          </h2>
-
-          {item.content.map((paragraph, pIndex) => (
-            <p key={pIndex} className="text-lg text-gray-600 leading-8">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      </>
-    ) : (
-      <>
-        {/* Content LEFT */}
-        <div className="md:col-span-2 space-y-4 w-full">
-          <h2 className="text-4xl font-extrabold text-[var(--color-theme-2)] mb-6">
-            {item.title}
-          </h2>
-
-          {item.content.map((paragraph, pIndex) => (
-            <p key={pIndex} className="text-lg text-gray-600 leading-8">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-
-        {/* Image RIGHT */}
-        <div className="relative h-80 w-full overflow-hidden rounded-2xl">
-          <Image 
-            src={item.img} 
-            alt={item.title} 
-            fill 
-            className="object-cover transform transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-      </>
-    )}
-
-  </div>
-))}
+      ))}
     </section>
   );
 };

@@ -23,7 +23,6 @@ const InternetofThings = () => {
     <div className="min-h-screen bg-[var(--theme-bg-light)] text-slate-700 py-24 px-6 font-sans">
       
       {/* GRID BACKGROUND */}
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4">
         
@@ -82,7 +81,7 @@ This connectivity transforms a standard object—like a city streetlight or a re
                 
                 {/* NAV */}
                 <div>
-                  <h3 className="text-xl font-extrabold text-theme uppercase tracking-widest mb-6">
+                  <h3 className="text-xl font-extrabold text-white uppercase tracking-widest mb-6">
                     Computer Science and Engineering
                   </h3>
 
@@ -94,10 +93,10 @@ This connectivity transforms a standard object—like a city streetlight or a re
                         className="group flex items-center justify-between px-3 py-3 rounded-lg hover:bg-slate-900 transition"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-[30px] font-sans text-theme group-hover:text-[var(--color-theme-2)]">
+                          <span className="text-[30px] font-sans text-white group-hover:text-[var(--color-theme-2)]">
                             [{link.count}]
                           </span>
-                          <span className="text-sm font-bold text-theme group-hover:text-theme-2">
+                          <span className="text-sm font-bold text-white group-hover:text-theme-2">
                             {link.title}
                           </span>
                         </div>
