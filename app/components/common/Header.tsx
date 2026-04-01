@@ -41,7 +41,7 @@ export default function Header() {
           {/* Hide these below 992px (lg) */}
           <div className="hidden lg:flex gap-5 text-white/80 font-semibold items-center">
             <Link href="/research">R & D Cell</Link>
-            <Link href="#">Feedback</Link>
+            <Link href="/feedback">Feedback</Link>
             <Link href="#">Blog</Link>
             <Link href="#">Alumni</Link>
             <Link href="#">Faculty</Link>

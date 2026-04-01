@@ -1,6 +1,7 @@
 import React from 'react'
 import ResearchHero from '../components/research/ResearchHero'
 import AboutResearch from '../components/research/AboutResearch'
+import Research from '../components/research/Research'
 
 
 const page = () => {
@@ -8,6 +9,7 @@ const page = () => {
     <>
    <ResearchHero />
    <AboutResearch />
+   <Research />
     </>
   )
 }
