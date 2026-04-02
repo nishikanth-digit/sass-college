@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const FeedbackHero: React.FC = () => {
+const AluminiHero: React.FC = () => {
   return (
     <section className="relative h-[40vh] w-full overflow-hidden bg-[var(--color-theme)]">
       {/* Background Image with Overlay */}
@@ -22,7 +22,7 @@ const FeedbackHero: React.FC = () => {
           
           {/* Small, Elegant Heading */}
           <h2 className="text-sm md:text-base font-bold text-[var(--color-theme-2)] uppercase tracking-[0.3em] mb-3">
-           Feedback ;
+           Alumini
           </h2>
           
           {/* Styled Paragraph Box */}
@@ -31,8 +31,8 @@ const FeedbackHero: React.FC = () => {
             <div className="absolute -inset-y-2 -inset-x-3 border border-[var(--color-footer-text)]/10 rounded bg-[var(--color-footer-text)]/[0.02] backdrop-blur-[2px]"></div>
             
             <p className="relative text-base md:text-lg text-[var(--color-footer-text)]/80 leading-relaxed font-medium italic">
-            The R&D programs of the institute are lead by highly experienced persons with industry and academic background.
-            </p>
+
+We believe that learning shouldn't end at graduation. Our alumni play a pivotal role in shaping the next generation through:            </p>
           </div>
 
         </div>
@@ -41,4 +41,4 @@ const FeedbackHero: React.FC = () => {
   );
 };
 
-export default  FeedbackHero;
+export default  AluminiHero;

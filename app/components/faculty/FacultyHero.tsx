@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const FeedbackHero: React.FC = () => {
+const FacultyHero: React.FC = () => {
   return (
     <section className="relative h-[40vh] w-full overflow-hidden bg-[var(--color-theme)]">
       {/* Background Image with Overlay */}
@@ -22,7 +22,7 @@ const FeedbackHero: React.FC = () => {
           
           {/* Small, Elegant Heading */}
           <h2 className="text-sm md:text-base font-bold text-[var(--color-theme-2)] uppercase tracking-[0.3em] mb-3">
-           Feedback ;
+        Our College Faculty
           </h2>
           
           {/* Styled Paragraph Box */}
@@ -41,4 +41,4 @@ const FeedbackHero: React.FC = () => {
   );
 };
 
-export default  FeedbackHero;
+export default  FacultyHero;

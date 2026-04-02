@@ -43,8 +43,8 @@ export default function Header() {
             <Link href="/research">R & D Cell</Link>
             <Link href="/feedback">Feedback</Link>
             <Link href="#">Blog</Link>
-            <Link href="#">Alumni</Link>
-            <Link href="#">Faculty</Link>
+            <Link href="/alumini">Alumni</Link>
+            <Link href="/faculty">Faculty</Link>
 
             {/* LOGIN DROPDOWN */}
             <div className="relative" ref={loginRef}>
