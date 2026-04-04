@@ -62,7 +62,7 @@ const ChairmanMessage = () => {
           <img
             src="/college-management/chairman.png"
             alt="College Chairman"
-            className="w-full h-[500px] object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
+            className="   "
           />
 
           {/* Glass Overlay */}

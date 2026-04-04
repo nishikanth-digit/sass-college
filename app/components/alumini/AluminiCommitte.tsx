@@ -33,20 +33,24 @@ export default function AlumniCommittee() {
       <div className="w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0a] shadow-2xl">
         
         {/* Table Header Section */}
-        <div className="px-8 py-6 border-b border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent">
-          <h2 className="text-xl font-medium text-white tracking-tight">Executive Committee</h2>
-          <p className="text-sm text-gray-500">Managing the global alumni network and endowment funds.</p>
+        <div className="px-8 py-8 border-b border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent">
+          <h2 className="text-2xl font-semibold text-white tracking-tight">
+            Executive Registry
+          </h2>
+          <p className="mt-1 text-sm text-gray-500">
+            A centralized directory of the global alumni leadership and governing body.
+          </p>
         </div>
 
-        {/* Table Container - Removed horizontal overflow and locked layout */}
+        {/* Table Container */}
         <div className="w-full cursor-default overflow-hidden">
           <table className="w-full table-fixed border-collapse text-left">
             <thead>
               <tr className="text-xs uppercase tracking-[0.2em] text-gray-500 bg-white/[0.01]">
-                <th className="w-2/5 px-8 py-4 font-semibold">Member Details</th>
-                <th className="w-1/4 px-8 py-4 font-semibold">Designation</th>
-                <th className="w-1/6 px-8 py-4 font-semibold">Class</th>
-                <th className="w-1/6 px-8 py-4 font-semibold text-right">Status</th>
+                <th className="w-2/5 px-8 py-5 font-semibold">Member Details</th>
+                <th className="w-1/4 px-8 py-5 font-semibold">Designation</th>
+                <th className="w-1/6 px-8 py-5 font-semibold">Class</th>
+                <th className="w-1/6 px-8 py-5 font-semibold text-right">Status</th>
               </tr>
             </thead>
             
@@ -57,17 +61,16 @@ export default function AlumniCommittee() {
                   onMouseMove={handleMouseMove}
                   className="group relative transition-colors duration-500 hover:bg-white/[0.02] cursor-pointer"
                 >
-                  <td className="relative overflow-hidden px-8 py-6 transition-transform duration-300 group-hover:translate-x-1">
-                    {/* The Spotlight Effect - Now constrained by relative/overflow-hidden */}
+                  <td className="relative overflow-hidden px-8 py-6">
+                    {/* The Spotlight Effect */}
                     <div 
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0"
                       style={{
                         background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.08), transparent 80%)`,
-                        width: '200%', // Reduced width to prevent hidden horizontal stretching
                       }}
                     />
                     
-                    <div className="flex flex-col relative z-10">
+                    <div className="flex flex-col relative z-10 transition-transform duration-300 group-hover:translate-x-1">
                       <span className="truncate text-sm font-medium text-gray-200 group-hover:text-blue-400 transition-colors duration-300">
                         {member.name}
                       </span>

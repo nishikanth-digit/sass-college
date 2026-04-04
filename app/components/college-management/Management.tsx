@@ -133,9 +133,7 @@ const Management = () => {
                 Leadership Team
               </span>
             </h1>
-          </div>
-
-          <div className="flex flex-col space-y-3">
+          </div>   <div className="flex flex-col space-y-3">
             {leadershipData.map((member) => (
               <button
                 key={member.id}
