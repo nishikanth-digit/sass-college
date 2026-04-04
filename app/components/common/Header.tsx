@@ -42,7 +42,7 @@ export default function Header() {
           <div className="hidden lg:flex gap-5 text-white/80 font-semibold items-center">
             <Link href="/research">R & D Cell</Link>
             <Link href="/feedback">Feedback</Link>
-            <Link href="#">Blog</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/alumini">Alumni</Link>
             <Link href="/faculty">Faculty</Link>
 

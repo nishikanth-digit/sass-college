@@ -43,7 +43,7 @@ export default function Research() {
           <h1 className="text-5xl md:text-7xl font-semibold text-white tracking-tight mb-10">
             Research & <span className="text-[var(--color-theme-2)]">Development</span>
           </h1>
-          <div className="h-1 w-20 bg-[var(--color-theme-2)] mx-auto rounded-full" />
+          
         </div>
       </section>
 

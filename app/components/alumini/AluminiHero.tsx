@@ -7,9 +7,9 @@ const AluminiHero: React.FC = () => {
     <section className="relative h-[40vh] w-full overflow-hidden bg-[var(--color-theme)]">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/research/rdcell.jpg')`, 
+          backgroundImage: `url('/alumini/aluminihero.png')`, 
         }}
       >
         {/* Subtle Gradient Overlay */}

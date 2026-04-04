@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-const FacultyHero: React.FC = () => {
+const BlogHero: React.FC = () => {
   return (
     <section className="relative h-[40vh] w-full overflow-hidden bg-[var(--color-theme)]">
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-bg-top bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/faculty/facultyhero.jpg')`, 
+          backgroundImage: `url('/departments/ai&mlhero.png')`, 
         }}
       >
         {/* Subtle Gradient Overlay */}
@@ -22,7 +22,7 @@ const FacultyHero: React.FC = () => {
           
           {/* Small, Elegant Heading */}
           <h2 className="text-sm md:text-base font-bold text-[var(--color-theme-2)] uppercase tracking-[0.3em] mb-3">
-        Our College Faculty
+         Blog
           </h2>
           
           {/* Styled Paragraph Box */}
@@ -31,7 +31,7 @@ const FacultyHero: React.FC = () => {
             <div className="absolute -inset-y-2 -inset-x-3 border border-[var(--color-footer-text)]/10 rounded bg-[var(--color-footer-text)]/[0.02] backdrop-blur-[2px]"></div>
             
             <p className="relative text-base md:text-lg text-[var(--color-footer-text)]/80 leading-relaxed font-medium italic">
-             Our faculty members are more than just educators; they are industry veterans and seasoned researchers.
+             College is more than textbooks and late-night study sessions; it’s where we truly find ourselves. Beyond the caffeine-fueled grind, the real growth happens in the moments in between.
             </p>
           </div>
 
@@ -41,4 +41,4 @@ const FacultyHero: React.FC = () => {
   );
 };
 
-export default  FacultyHero;
+export default BlogHero;

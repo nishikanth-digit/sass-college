@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -10,19 +9,18 @@ interface Alumnus {
   role: string;
   batch: string;
   imageUrl: string;
-  color: 'blue' | 'purple' | 'emerald' | 'rose';
+  color: 'blue' | 'purple' | 'emerald' | 'rose' | 'pink'; // Added 'pink'
 }
 
-// --- 2. Mock Data ---
+// --- 2. Mock Data (Updated with pink color) ---
 const alumniData: Alumnus[] = [
   { id: 1, name: "Alex Rivera", role: "Senior Dev at Google", batch: "2018", color: "blue", imageUrl: "https://i.pravatar.cc/150?u=1" },
   { id: 2, name: "Sarah Chen", role: "Product Designer", batch: "2020", color: "purple", imageUrl: "https://i.pravatar.cc/150?u=2" },
-  { id: 3, name: "Marcus Thorne", role: "AI Researcher", batch: "2015", color: "emerald", imageUrl: "https://i.pravatar.cc/150?u=3" },
-  { id: 4, name: "Elena Rodriguez", role: "Founder of TechBloom", batch: "2019", color: "rose", imageUrl: "https://i.pravatar.cc/150?u=4" },
+  { id: 3, name: "Marcus Thorne", role: "AI Researcher", batch: "2015", color: "pink", imageUrl: "https://i.pravatar.cc/150?u=3" }, // Changed to pink
+  { id: 4, name: "Elena Rodriguez", role: "Founder of TechBloom", batch: "2019", color: "pink", imageUrl: "https://i.pravatar.cc/150?u=4" }, // Changed to pink
 ];
 
-// --- 3. Helper for Dynamic Tailwind Colors ---
-// This ensures Tailwind picks up the classes even if they are dynamic
+// --- 3. Helper for Dynamic Tailwind Colors (Updated with pink theme) ---
 const colorMap = {
   blue: {
     glow: "bg-blue-500",
@@ -47,11 +45,17 @@ const colorMap = {
     border: "border-rose-400",
     text: "text-rose-400",
     badge: "bg-rose-500/10 border-rose-500/20"
+  },
+  pink: { // New pink theme using Tailwind color
+    glow: "bg-pink-500",
+    border: "border-pink-400",
+    text: "text-pink-400",
+    badge: "bg-pink-500/10 border-pink-500/20"
   }
 };
 
 // --- 4. Sub-Component: AlumniCard ---
-const AluminiGallery= ({ member }: { member: Alumnus }) => {
+const AluminiCard = ({ member }: { member: Alumnus }) => {
   const theme = colorMap[member.color];
 
   return (
@@ -100,17 +104,17 @@ const AluminiGallery= ({ member }: { member: Alumnus }) => {
 // --- 5. Main Page Component ---
 export default function AlumniGallery() {
   return (
-    <div className="min-h-screen bg-[#020617] py-24 px-6 selection:bg-purple-500/30">
+    <div className="min-h-screen bg-[#020617] py-24 px-6 selection:bg-pink-500/30"> {/* Updated selection color to pink */}
       <div className="mx-auto max-w-7xl">
         {/* Header Section */}
         <div className="relative mb-20 text-center">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-purple-600/10 blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-pink-600/10 blur-[120px] pointer-events-none"></div> {/* Updated background glow color to pink */}
           
-          <h2 className="text-sm font-bold tracking-[0.3em] text-purple-500 uppercase mb-4">
+          <h2 className="text-sm font-bold tracking-[0.3em] text-pink-500 uppercase mb-4"> {/* Updated text color to pink */}
             Network Directory
           </h2>
           <h1 className="text-5xl font-black tracking-tight text-white md:text-7xl">
-            Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400">Legends.</span>
+            Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Legends.</span> {/* Updated gradient color to pink */}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
             From Silicon Valley to independent startups, our alumni are shaping the future of technology and design.
@@ -120,7 +124,7 @@ export default function AlumniGallery() {
         {/* Grid System */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {alumniData.map((member) => (
-            <AluminiGallery key={member.id} member={member} />
+            <AluminiCard key={member.id} member={member} />
           ))}
         </div>
 
