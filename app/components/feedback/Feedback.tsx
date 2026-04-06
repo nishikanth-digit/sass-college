@@ -69,7 +69,7 @@ export default function Feedback() {
   const current = testimonials[active];
 
   return (
-    <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-20 px-4 flex items-center justify-center font-sans overflow-hidden">
+    <section className="bg-[var(--theme-bg-light)] py-24 px-6 relative overflow-hidden font-sans">
       <style jsx global>{`
         @keyframes slideInRight {
           0% { transform: translateX(50px); opacity: 0; }
@@ -93,32 +93,35 @@ export default function Feedback() {
         .animate-scale { opacity: 0; animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       `}</style>
 
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--theme-color2)]/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--theme-color2)]/10 blur-[120px] rounded-full pointer-events-none" />
+
       <div 
-        className="relative max-w-6xl w-full"
+        className="max-w-7xl mx-auto px-4 relative z-10"
         onMouseEnter={() => setIsAutoPlay(false)}
         onMouseLeave={() => setIsAutoPlay(true)}
       >
-        {/* --- NEW HEADER SECTION --- */}
+        {/* --- REPLACED HEADER SECTION --- */}
         <div className="mb-16 max-w-2xl animate-fade-up">
-          <span className="text-theme-2 font-bold tracking-widest uppercase text-sm mb-4 block">
-            Success Stories
-          </span>
-          <h2 className="text-4xl md:text-6xl font-black text-theme dark:text-white mb-6 leading-tight">
-            Our Graduates <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-2 to-purple">
-              Speak for Us
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--theme-color2)]/10 border border-[var(--theme-color2)]/20 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[var(--theme-color2)] animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--theme-color2)]">
+              Success Stories
             </span>
+          </div>
+
+          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight tracking-tight text-[var(--theme-color)]">
+            Our Graduates <br />
+            <span className="text-[var(--color-theme)]/60 italic font-medium"> Speak for Us</span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          
+          <p className="mt-6 max-w-xl text-gray-600 text-lg font-medium leading-relaxed">
             Join thousands of professionals who have transformed their careers through 
             our specialized tracks and world-class mentorship.
           </p>
         </div>
         {/* --- END HEADER SECTION --- */}
-
-        {/* Background Glows */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-theme-2/10 blur-[120px] rounded-full -z-10" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-theme/10 blur-[120px] rounded-full -z-10" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -144,17 +147,17 @@ export default function Feedback() {
               className="absolute -bottom-6 -right-6 md:right-0 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 animate-fade-up [animation-delay:400ms]"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-theme-2/10 rounded-lg text-theme-2">
+                <div className="p-2 bg-[var(--theme-color2)]/10 rounded-lg text-[var(--theme-color2)]">
                   <GraduationCap size={20} />
                 </div>
-                <span className="font-bold text-theme dark:text-slate-100">Verified Alumni</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100">Verified Alumni</span>
               </div>
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star 
                     key={i} 
                     size={16} 
-                    className={`${i < current.rating ? "fill-yellow text-yellow" : "text-slate-300"}`} 
+                    className={`${i < current.rating ? "fill-yellow-400 text-yellow-400" : "text-slate-300"}`} 
                   />
                 ))}
               </div>
@@ -167,14 +170,14 @@ export default function Feedback() {
               key={`content-${active}`}
               className={`relative ${direction === 'next' ? 'animate-slide-right' : 'animate-slide-left'}`}
             >
-              <Quote className="text-theme-2/10 w-20 h-20 absolute -top-10 -left-6" />
+              <Quote className="text-[var(--theme-color2)]/10 w-20 h-20 absolute -top-10 -left-6" />
               
-              <h3 className="text-2xl md:text-3xl font-bold text-theme dark:text-white leading-[1.15] mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-[1.15] mb-8 relative z-10">
                 "{current.content}"
               </h3>
 
               <div>
-                <p className="text-2xl font-bold text-theme dark:text-white">
+                <p className="text-2xl font-bold text-slate-900 dark:text-white">
                   {current.name}
                 </p>
                 <p className={`text-transparent bg-clip-text bg-gradient-to-r ${current.color} font-semibold uppercase tracking-widest text-sm mt-1`}>
@@ -188,15 +191,15 @@ export default function Feedback() {
               <div className="flex gap-4">
                 <button 
                   onClick={handlePrev}
-                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:border-theme-2/50 hover:shadow-lg transition-all duration-300 group text-theme"
+                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:border-[var(--theme-color2)]/50 hover:shadow-lg transition-all duration-300 group text-slate-700"
                 >
-                  <ChevronLeft className="group-hover:-translate-x-1 transition-transform group-hover:text-theme-2" />
+                  <ChevronLeft className="group-hover:-translate-x-1 transition-transform group-hover:text-[var(--theme-color2)]" />
                 </button>
                 <button 
                   onClick={handleNext}
-                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:border-theme-2/50 hover:shadow-lg transition-all duration-300 group text-theme"
+                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:border-[var(--theme-color2)]/50 hover:shadow-lg transition-all duration-300 group text-slate-700"
                 >
-                  <ChevronRight className="group-hover:translate-x-1 transition-transform group-hover:text-theme-2" />
+                  <ChevronRight className="group-hover:translate-x-1 transition-transform group-hover:text-[var(--theme-color2)]" />
                 </button>
               </div>
 
@@ -209,7 +212,7 @@ export default function Feedback() {
                       setActive(i);
                     }}
                     className={`h-2 rounded-full transition-all duration-500 ${
-                      i === active ? "w-12 bg-theme-2" : "w-3 bg-slate-300 dark:bg-slate-700 hover:bg-theme-2/40"
+                      i === active ? "w-12 bg-[var(--theme-color2)]" : "w-3 bg-slate-300 dark:bg-slate-700 hover:bg-[var(--theme-color2)]/40"
                     }`}
                   />
                 ))}

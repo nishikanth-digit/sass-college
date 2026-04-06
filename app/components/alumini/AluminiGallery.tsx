@@ -9,70 +9,50 @@ interface Alumnus {
   role: string;
   batch: string;
   imageUrl: string;
-  color: 'blue' | 'purple' | 'emerald' | 'rose' | 'pink'; // Added 'pink'
+  color: 'theme-2' | 'purple' | 'blue';
 }
 
-// --- 2. Mock Data (Updated with pink color) ---
+// --- 2. Mock Data ---
 const alumniData: Alumnus[] = [
   { id: 1, name: "Alex Rivera", role: "Senior Dev at Google", batch: "2018", color: "blue", imageUrl: "https://i.pravatar.cc/150?u=1" },
   { id: 2, name: "Sarah Chen", role: "Product Designer", batch: "2020", color: "purple", imageUrl: "https://i.pravatar.cc/150?u=2" },
-  { id: 3, name: "Marcus Thorne", role: "AI Researcher", batch: "2015", color: "pink", imageUrl: "https://i.pravatar.cc/150?u=3" }, // Changed to pink
-  { id: 4, name: "Elena Rodriguez", role: "Founder of TechBloom", batch: "2019", color: "pink", imageUrl: "https://i.pravatar.cc/150?u=4" }, // Changed to pink
+  { id: 3, name: "Marcus Thorne", role: "AI Researcher", batch: "2015", color: "theme-2", imageUrl: "https://i.pravatar.cc/150?u=3" }, 
+  { id: 4, name: "Elena Rodriguez", role: "Founder of TechBloom", batch: "2019", color: "theme-2", imageUrl: "https://i.pravatar.cc/150?u=4" },
 ];
 
-// --- 3. Helper for Dynamic Tailwind Colors (Updated with pink theme) ---
 const colorMap = {
   blue: {
-    glow: "bg-blue-500",
-    border: "border-blue-400",
-    text: "text-blue-400",
-    badge: "bg-blue-500/10 border-blue-500/20"
+    glow: "bg-blue",
+    border: "border-blue/50",
+    text: "text-blue",
+    badge: "bg-blue/10 border-blue/20"
   },
   purple: {
-    glow: "bg-purple-500",
-    border: "border-purple-400",
-    text: "text-purple-400",
-    badge: "bg-purple-500/10 border-purple-500/20"
+    glow: "bg-purple",
+    border: "border-purple/50",
+    text: "text-purple",
+    badge: "bg-purple/10 border-purple/20"
   },
-  emerald: {
-    glow: "bg-emerald-500",
-    border: "border-emerald-400",
-    text: "text-emerald-400",
-    badge: "bg-emerald-500/10 border-emerald-500/20"
-  },
-  rose: {
-    glow: "bg-rose-500",
-    border: "border-rose-400",
-    text: "text-rose-400",
-    badge: "bg-rose-500/10 border-rose-500/20"
-  },
-  pink: { // New pink theme using Tailwind color
-    glow: "bg-pink-500",
-    border: "border-pink-400",
-    text: "text-pink-400",
-    badge: "bg-pink-500/10 border-pink-500/20"
+  "theme-2": {
+    glow: "bg-theme-2",
+    border: "border-theme-2/50",
+    text: "text-theme-2",
+    badge: "bg-theme-2/10 border-theme-2/20"
   }
 };
 
-// --- 4. Sub-Component: AlumniCard ---
-const AluminiCard = ({ member }: { member: Alumnus }) => {
+const AlumniCard = ({ member }: { member: Alumnus }) => {
   const theme = colorMap[member.color];
 
   return (
-    <div className="group relative rounded-2xl bg-slate-900 p-px transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl">
-      {/* Background Glow Effect */}
-      <div 
-        className={`absolute -inset-0.5 rounded-2xl opacity-0 blur-xl transition duration-500 group-hover:opacity-40 ${theme.glow}`}
-      ></div>
+    <div className="group relative rounded-2xl bg-white p-px transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl">
+      <div className={`absolute -inset-0.5 rounded-2xl opacity-0 blur-xl transition duration-500 group-hover:opacity-40 ${theme.glow}`}></div>
 
-      {/* Main Card Body */}
-      <div className="relative flex h-full flex-col items-center overflow-hidden rounded-2xl bg-slate-950 p-8 text-center">
-        {/* Avatar Section */}
+      <div className="relative flex h-full flex-col items-center overflow-hidden rounded-2xl bg-theme p-8 text-center border border-white/5">
         <div className="relative mb-6 h-32 w-32">
-          {/* Animated Orbit Ring */}
           <div className={`absolute inset-[-8px] rounded-full border-2 border-dashed ${theme.border} opacity-0 transition-all duration-700 group-hover:rotate-180 group-hover:opacity-50`}></div>
           
-          <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-slate-800 transition-transform duration-500 group-hover:border-slate-700">
+          <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white/10 transition-transform duration-500 group-hover:border-white/20">
             <img
               src={member.imageUrl}
               alt={member.name}
@@ -81,60 +61,69 @@ const AluminiCard = ({ member }: { member: Alumnus }) => {
           </div>
         </div>
 
-        {/* Info Section */}
-        <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-white/90">
+        <h3 className="text-xl font-bold text-white transition-colors duration-300">
           {member.name}
         </h3>
         <p className="mt-2 text-sm font-medium text-slate-400 uppercase tracking-wider">
           {member.role}
         </p>
         
-        {/* Badge */}
         <div className={`mt-6 rounded-full px-4 py-1 text-xs font-bold ${theme.text} ${theme.badge} border`}>
           CLASS OF {member.batch}
         </div>
 
-        {/* Decorative Bottom Bar */}
         <div className={`absolute bottom-0 h-1 w-0 transition-all duration-500 group-hover:w-full ${theme.glow}`}></div>
       </div>
     </div>
   );
 };
 
-// --- 5. Main Page Component ---
 export default function AlumniGallery() {
   return (
-    <div className="min-h-screen bg-[#020617] py-24 px-6 selection:bg-pink-500/30"> {/* Updated selection color to pink */}
-      <div className="mx-auto max-w-7xl">
-        {/* Header Section */}
-        <div className="relative mb-20 text-center">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-pink-600/10 blur-[120px] pointer-events-none"></div> {/* Updated background glow color to pink */}
+    <section className="bg-theme py-20 px-6 md:px-16 overflow-hidden min-h-screen relative">
+      
+      {/* Background Glow (Styled like the Valuation Procedure) */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[var(--theme-color2)]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-[var(--theme-color2)]/10 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Header (Strictly following the Valuation Procedure design) */}
+        <div className="flex flex-col items-center text-center mb-20 space-y-4">
           
-          <h2 className="text-sm font-bold tracking-[0.3em] text-pink-500 uppercase mb-4"> {/* Updated text color to pink */}
+          <div className="inline-block px-4 py-1 bg-[var(--theme-color2)]/10 border border-[var(--theme-color2)]/30 rounded-full text-[var(--theme-color2)] text-xs font-semibold uppercase tracking-widest">
             Network Directory
-          </h2>
-          <h1 className="text-5xl font-black tracking-tight text-white md:text-7xl">
-            Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Legends.</span> {/* Updated gradient color to pink */}
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
+            Meet Our{" "}
+            <span className="text-white italic">
+              Legends
+            </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
-            From Silicon Valley to independent startups, our alumni are shaping the future of technology and design.
+
+          <p className="max-w-2xl text-gray-400 text-lg leading-relaxed">
+            From Silicon Valley to independent startups, our alumni are shaping the 
+            future of technology and design through innovation and leadership.
           </p>
         </div>
 
         {/* Grid System */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {alumniData.map((member) => (
-            <AluminiCard key={member.id} member={member} />
+            <AlumniCard key={member.id} member={member} />
           ))}
         </div>
 
-        {/* Simple Footer/Call to action */}
+        {/* Call to action */}
         <div className="mt-24 text-center">
-          <button className="rounded-full bg-white px-8 py-3 text-sm font-bold text-black transition-all hover:bg-slate-200 hover:scale-105 active:scale-95">
+          <button className="rounded-full bg-theme-2 px-8 py-3 text-sm font-bold text-white transition-all hover:brightness-110 hover:scale-105 active:scale-95 shadow-lg shadow-theme-2/20">
             Join the Alumni Network
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
