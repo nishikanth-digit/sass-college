@@ -154,7 +154,7 @@ export default function ComputerScienceDashboard() {
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-theme tracking-tight">
                 Our Specializations in CSE 
-              </h3>
+             </h3>
               
               {/* Live Update Indicator */}
               <div className="flex items-center gap-1.5 px-3 py-1 bg-theme-bg-light rounded-full text-[11px] font-semibold text-theme shadow-xs">
