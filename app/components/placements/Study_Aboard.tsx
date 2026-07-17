@@ -1,82 +1,82 @@
-"use client";
+// "use client";
 
-import React from "react";
+// import React from "react";
 
-const IconPlaceholder = ({ d }: { d: string }) => (
-  <svg
-    className="w-8 h-8"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d={d} />
-  </svg>
-);
+// const IconPlaceholder = ({ d }: { d: string }) => (
+//   <svg
+//     className="w-8 h-8"
+//     fill="none"
+//     viewBox="0 0 24 24"
+//     stroke="currentColor"
+//     strokeWidth={2}
+//   >
+//     <path strokeLinecap="round" strokeLinejoin="round" d={d} />
+//   </svg>
+// );
 
-const services = [
-  {
-    title: "Counseling",
-    path: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
-  },
-  {
-    title: "Student Loans",
-    path: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
-  },
-  {
-    title: "Scholarships",
-    path: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-  },
-  {
-    title: "Pre-Departure",
-    path: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
-  },
-];
+// const services = [
+//   {
+//     title: "Counseling",
+//     path: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
+//   },
+//   {
+//     title: "Student Loans",
+//     path: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
+//   },
+//   {
+//     title: "Scholarships",
+//     path: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+//   },
+//   {
+//     title: "Pre-Departure",
+//     path: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
+//   },
+// ];
 
-export default function Study_Aboard() {
-  return (
-    <section className="py-24 bg-[var(--theme-white)]">
-      <div className="max-w-7xl mx-auto px-6">
+// export default function Study_Aboard() {
+//   return (
+//     <section className="py-24 bg-[var(--theme-white)]">
+//       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Updated Title to match reference style */}
-        <div className="mb-16 text-left"> {/* Changed to text-left to align with reference style */}
-          <span className="text-[var(--color-theme-2)] text-[10px] font-black uppercase tracking-[0.2em] bg-[var(--color-theme-2)]/10 px-3 py-1.5 rounded border border-[var(--color-theme-2)]/20">
-            Global Education
-          </span>
+//         {/* Updated Title to match reference style */}
+//         <div className="mb-16 text-left"> {/* Changed to text-left to align with reference style */}
+//           <span className="text-[var(--color-theme-2)] text-[10px] font-black uppercase tracking-[0.2em] bg-[var(--color-theme-2)]/10 px-3 py-1.5 rounded border border-[var(--color-theme-2)]/20">
+//             Global Education
+//           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold mt-4 leading-tight tracking-tight text-[var(--color-theme)]">
-            Graduate Study 
+//           <h2 className="text-3xl md:text-5xl font-bold mt-4 leading-tight tracking-tight text-[var(--color-theme)]">
+//             Graduate Study 
            
-              Abroad Center.
+//               Abroad Center.
            
-          </h2>
-        </div>
+//           </h2>
+//         </div>
 
-        {/* Design remains exactly as it was */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, idx) => (
-            <div
-              key={idx}
-              className="group p-8 border border-gray-200 rounded-2xl bg-white hover:border-theme-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            >
+//         {/* Design remains exactly as it was */}
+//         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+//           {services.map((service, idx) => (
+//             <div
+//               key={idx}
+//               className="group p-8 border border-gray-200 rounded-2xl bg-white hover:border-theme-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+//             >
 
-              {/* Icon */}
-              <div className="mb-6 p-3 bg-pink-50 w-fit rounded-xl text-theme-2 group-hover:bg-theme-2 group-hover:text-white transition-all duration-300">
-                <IconPlaceholder d={service.path} />
-              </div>
+//               {/* Icon */}
+//               <div className="mb-6 p-3 bg-pink-50 w-fit rounded-xl text-theme-2 group-hover:bg-theme-2 group-hover:text-white transition-all duration-300">
+//                 <IconPlaceholder d={service.path} />
+//               </div>
 
-              <h3 className="text-xl font-bold text-theme mb-3 group-hover:text-theme-2 transition-colors">
-                {service.title}
-              </h3>
+//               <h3 className="text-xl font-bold text-theme mb-3 group-hover:text-theme-2 transition-colors">
+//                 {service.title}
+//               </h3>
 
-              <p className="text-body-text text-sm leading-relaxed">
-                Expert guidance tailored for your engineering career path abroad.
-              </p>
+//               <p className="text-body-text text-sm leading-relaxed">
+//                 Expert guidance tailored for your engineering career path abroad.
+//               </p>
 
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }

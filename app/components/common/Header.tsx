@@ -10,9 +10,6 @@ export default function Header() {
   const [loginOpen, setLoginOpen] = useState(false);
   const loginRef = useRef<HTMLDivElement>(null);
 
-
-
-
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -60,22 +57,25 @@ export default function Header() {
               </button>
 
               {loginOpen && (
-                <div className="absolute right-0 mt-2 w-44 z-90 bg-white border border-gray-200 rounded-lg shadow-xl py-2">
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Faculty Login
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Student Login
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Parent Login
-                  </Link>
+                <div className="absolute right-0 top-[100%] pt-2 w-44 z-[100]">
+                  <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-2">
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Faculty Login
+                    </Link>
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Student Login
+                    </Link>
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Parent Login
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+      
       {/* ================= MAIN NAVBAR ================= */}
       <div className="bg-white sticky top-0 z-50 shadow">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
@@ -84,7 +84,6 @@ export default function Header() {
             <Link href="/">
               <img src="/logos/digit-college-logo.png" alt="DIGIT logo" width="180px" />
             </Link>
-
           </div>
 
           {/* DESKTOP MENU */}
@@ -107,6 +106,8 @@ export default function Header() {
                 { label: "Anti Ragging", href: "/academics/anti-ragging" },
               ]}
             />
+            
+            {/* UPDATED MEGA MENU COMPONENT */}
             <MegaDepartments />
 
             <Link href="/placements" className="hover:text-theme transition">
@@ -115,6 +116,7 @@ export default function Header() {
             <Link href="/examinationcell" className="hover:text-theme transition">
               Examination Cell
             </Link>
+            
             <Dropdown
               title="Facilities"
               items={[
@@ -130,8 +132,7 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* HAMBURGER */}
-          {/* MOBILE RIGHT SIDE */}
+          {/* HAMBURGER / MOBILE RIGHT SIDE */}
           <div className="flex items-center gap-3 lg:hidden">
 
             {/* Mobile Login Button */}
@@ -148,16 +149,18 @@ export default function Header() {
               </button>
 
               {loginOpen && (
-                <div className="absolute right-0 mt-2 w-44 z-90 bg-white border border-gray-200 rounded-lg shadow-xl py-2">
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Faculty Login
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Student Login
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
-                    Parent Login
-                  </Link>
+                <div className="absolute right-0 top-[100%] pt-2 w-44 z-[100]">
+                  <div className="bg-white border border-gray-200 rounded-lg shadow-xl py-2">
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Faculty Login
+                    </Link>
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Student Login
+                    </Link>
+                    <Link href="#" className="block px-4 py-2 text-black hover:bg-gray-100">
+                      Parent Login
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -218,23 +221,27 @@ export default function Header() {
               activeMobileMenu={activeMobileMenu}
               setActiveMobileMenu={setActiveMobileMenu}
             />
-            <MobileDepartments activeMobileMenu={activeMobileMenu}
-              setActiveMobileMenu={setActiveMobileMenu} />
+            
+            <MobileDepartments 
+              activeMobileMenu={activeMobileMenu}
+              setActiveMobileMenu={setActiveMobileMenu} 
+              setMobileOpen={setMobileOpen} 
+            />
 
-            <Link href="/placements">Placements</Link>
-            <Link href="/examinationcell">Examination Cell</Link>
+            <Link href="/placements" onClick={() => setMobileOpen(false)}>Placements</Link>
+            <Link href="/examinationcell" onClick={() => setMobileOpen(false)}>Examination Cell</Link>
+            
             {/* TOPBAR LINKS (Mobile Only) */}
-
-            <Link href="#">R & D Cell</Link>
-            <Link href="#">Feedback</Link>
-            <Link href="#">Blog</Link>
-            <Link href="#">Alumni</Link>
-            <Link href="#">Faculty</Link>
+            <Link href="/research" onClick={() => setMobileOpen(false)}>R & D Cell</Link>
+            <Link href="/feedback" onClick={() => setMobileOpen(false)}>Feedback</Link>
+            <Link href="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
+            <Link href="/alumini" onClick={() => setMobileOpen(false)}>Alumni</Link>
+            <Link href="/faculty" onClick={() => setMobileOpen(false)}>Faculty</Link>
 
             <MobileDropdown
               title="Facilities"
               items={[
-              { label: "Library", href: "/facilities/library" },
+                { label: "Library", href: "/facilities/library" },
                 { label: "Hostel", href: "/facilities/hostel" },
                 { label: "Sports", href: "/facilities/sports" },
                 { label: "Cafeteria", href: "/facilities/cafeteria" },
@@ -243,7 +250,7 @@ export default function Header() {
               activeMobileMenu={activeMobileMenu}
               setActiveMobileMenu={setActiveMobileMenu}
             />
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
 
           </div>
         </div>
@@ -261,22 +268,28 @@ function Dropdown({
   items: { label: string; href: string }[];
 }) {
   return (
-    <div className="relative group">
+    <div className="relative group py-2">
       <div className="flex items-center gap-1 cursor-pointer hover:text-theme transition">
         {title}
         <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
       </div>
 
-      <div className="absolute left-0 top-full mt-3 w-46 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-        {items.map((item, index) => (
-          <Link
-            key={index}
-            href={item.href}
-            className="block px-4 py-2 hover:bg-gray-100 text-sm"
-          >
-            {item.label}
-          </Link>
-        ))}
+      <div className="
+        absolute left-0 top-full w-48 pt-3 -mt-1
+        opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+        transition-all duration-200 z-[100]
+      ">
+        <div className="py-2 bg-white rounded-lg border border-gray-100 shadow-lg">
+          {items.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className="block px-4 py-2 hover:bg-gray-100 text-sm text-black"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -329,49 +342,62 @@ function MobileDropdown({
 }
 
 /* ================= MOBILE DEPARTMENTS ================= */
-
 function MobileDepartments({
   activeMobileMenu,
   setActiveMobileMenu,
+  setMobileOpen,
 }: {
   activeMobileMenu: string | null;
   setActiveMobileMenu: (value: string | null) => void;
+  setMobileOpen: (value: boolean) => void;
 }) {
   const title = "Departments";
   const open = activeMobileMenu === title;
 
+  const handleMainLinkClick = () => {
+    setActiveMobileMenu(null);
+    setMobileOpen(false);
+  };
+
   return (
     <div>
-      <div
-        onClick={() =>
-          setActiveMobileMenu(open ? null : title)
-        }
-        className="flex justify-between items-center cursor-pointer py-2 font-medium"
-      >
-        {title}
-        <ChevronRight
-          className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-90" : ""
-            }`}
-        />
+      <div className="flex justify-between items-center py-2">
+        <Link 
+          href="/departments" 
+          onClick={handleMainLinkClick} 
+          className="hover:text-theme flex-1 font-medium block"
+        >
+          {title}
+        </Link>
+        <button 
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setActiveMobileMenu(open ? null : title);
+          }} 
+          className="p-2 cursor-pointer flex items-center justify-center text-gray-700"
+          aria-label="Toggle Departments Menu"
+        >
+          <ChevronRight
+            className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-90" : ""}`}
+          />
+        </button>
       </div>
 
       <div
-        className={`overflow-hidden transition-all duration-500 ${open ? "max-h-[600px] mt-3" : "max-h-0"
-          }`}
+        className={`overflow-hidden transition-all duration-500 ${open ? "max-h-[600px] mt-3" : "max-h-0"}`}
       >
-        {/* SAME CONTENT AS BEFORE */}
         {/* CSE */}
         <h3 className="font-semibold text-theme mt-2 mb-2 pl-2">
           Computer Science & Engineering
         </h3>
 
         <div className="flex flex-col gap-2 text-sm text-gray-600 pl-4 mb-4">
-          <Link href="#">Artificial Intelligence & Machine Learning</Link>
-          <Link href="#">Data Science</Link>
-          <Link href="#">Cyber Security</Link>
-          {/* <Link href="#">Cloud Computing</Link>
-          <Link href="#">Full Stack Development</Link> */}
-          <Link href="#">Internet of Things (IoT)</Link>
+          <Link href="/departments/ComputerScience" onClick={handleMainLinkClick}>Computer Science & Engineering</Link>
+          <Link href="/departments/artificialintelligence" onClick={handleMainLinkClick}>Artificial Intelligence & Machine Learning</Link>
+          <Link href="/departments/datascience" onClick={handleMainLinkClick}>Data Science</Link>
+          <Link href="/departments/cybersecurity" onClick={handleMainLinkClick}>Cyber Security</Link>
+          <Link href="/departments/internet-of-things" onClick={handleMainLinkClick}>Internet of Things (IoT)</Link>
         </div>
 
         {/* CORE */}
@@ -380,10 +406,11 @@ function MobileDepartments({
         </h3>
 
         <div className="flex flex-col gap-2 text-sm text-gray-600 pl-4">
-          <Link href="#">Electronics & Communication Engineering</Link>
-          <Link href="#">Electrical & Electronics Engineering</Link>
-          <Link href="#">Civil Engineering</Link>
-          <Link href="#">Mechanical Engineering</Link>
+          <Link href="/departments/informationtechnology" onClick={handleMainLinkClick}>Information Technology</Link>
+          <Link href="/departments/electricalcommunication" onClick={handleMainLinkClick}>Electronics & Communication Engineering</Link>
+          <Link href="/departments/electricelectronic" onClick={handleMainLinkClick}>Electrical & Electronics Engineering</Link>
+          <Link href="/departments/civil" onClick={handleMainLinkClick}>Civil Engineering</Link>
+          <Link href="/departments/mechanical" onClick={handleMainLinkClick}>Mechanical Engineering</Link>
         </div>
       </div>
     </div>
@@ -391,17 +418,16 @@ function MobileDepartments({
 }
 
 /* ====================== Notification Slider ================== */
-
 function NotificationSlider() {
   const notifications = [
     {
-      text: "Admissions Open 2026 – Apply Now sjsf hs snf shf f sh sh fhns fhs hns fhs fhn sh shfsjfashfbsaf  ashf asbf ashf ",
-      link: "/brochure.pdf", // file download
+      text: "Admissions Open 2026 – Apply Now",
+      link: "/brochure.pdf", 
       download: true,
     },
     {
       text: "NAAC A+ Accredited Institution – Click to know more",
-      link: "/about", // internal page
+      link: "/about", 
       download: false,
     },
     {
@@ -430,7 +456,7 @@ function NotificationSlider() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [notifications.length]);
 
   const current = notifications[index];
   const next = notifications[(index + 1) % notifications.length];
@@ -471,85 +497,80 @@ function NotificationSlider() {
   );
 }
 
-
 /* ================= MEGA MENU - DEPARTMENTS ================= */
-
 function MegaDepartments() {
   return (
-    <div className="relative group">
-      {/* Trigger */}
-      <div className="flex items-center gap-1 cursor-pointer hover:text-theme transition">
+    <div className="relative group py-2">
+      <Link 
+        href="/departments/departments" 
+        className="flex items-center gap-1 cursor-pointer hover:text-theme transition"
+      >
         Departments
         <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-      </div>
+      </Link>
 
-      {/* MEGA MENU */}
+      {/* FIXED: Stable hot-zone bridge to avoid flickering on cursor transition */}
       <div className="
-        absolute left-1/2 -translate-x-1/2 top-full mt-6 
+        absolute left-1/2 -translate-x-1/2 top-full pt-3 -mt-1
         w-[95vw] max-w-[800px] 
-        bg-white shadow-2xl rounded-2xl 
-        p-6 md:p-8
-        opacity-0 invisible 
+        opacity-0 invisible
         group-hover:opacity-100 group-hover:visible 
-        transition-all duration-300 
-        z-50
+        transition-all duration-200 z-[100]
       ">
+        {/* Visual Content Box */}
+        <div className="bg-white shadow-2xl rounded-2xl p-6 md:p-8 border border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* CSE COLUMN */}
+            <div>
+              <h3 className="text-theme font-bold mb-4 border-b pb-2">
+                Computer Science & Engineering
+              </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex flex-col gap-2 text-sm text-black">
+                <Link href="/departments/ComputerScience" className="hover:text-theme transition">
+                  Computer Science & Engineering
+                </Link>
+                <Link href="/departments/artificialintelligence" className="hover:text-theme transition">
+                  Artificial Intelligence & Machine Learning
+                </Link>
+                <Link href="/departments/datascience" className="hover:text-theme transition">
+                  Data Science
+                </Link>
+                <Link href="/departments/cybersecurity" className="hover:text-theme transition">
+                  Cyber Security
+                </Link>
+                <Link href="/departments/internet-of-things" className="hover:text-theme transition">
+                  Internet of Things (IoT)
+                </Link>
+              </div>
+            </div>
 
-          {/* CSE COLUMN */}
-          <div>
-            <h3 className="text-theme font-bold mb-4 border-b pb-2">
-              Computer Science & Engineering
-            </h3>
+            {/* CORE ENGINEERING */}
+            <div>
+              <h3 className="text-theme font-bold mb-4 border-b pb-2">
+                Core Engineering
+              </h3>
 
-            <div className="flex flex-col gap-2 text-sm">
-              <Link href="/departments/artificialintelligence/" className="hover:text-theme transition">
-                Artificial Intelligence & Machine Learning
-              </Link>
-              <Link href="/departments/datascience/" className="hover:text-theme transition">
-                Data Science
-              </Link>
-              <Link href="/departments/cybersecurity/" className="hover:text-theme transition">
-                Cyber Security
-              </Link>
-              {/* <Link href="#" className="hover:text-theme transition">
-                Cloud Computing
-              </Link>
-              <Link href="#" className="hover:text-theme transition">
-                Full Stack Development
-              </Link> */}
-              <Link href="/departments/internet-of-things/" className="hover:text-theme transition">
-                Internet of Things (IoT)
-              </Link>
+              <div className="flex flex-col gap-2 text-sm text-black">
+                <Link href="/departments/informationtechnology" className="hover:text-theme transition">
+                  Information Technology
+                </Link>
+                <Link href="/departments/electricalcommunication" className="hover:text-theme transition">
+                  Electronics & Communication Engineering
+                </Link>
+                <Link href="/departments/electricelectronic" className="hover:text-theme transition">
+                  Electrical & Electronics Engineering
+                </Link>
+                <Link href="/departments/civil" className="hover:text-theme transition">
+                  Civil Engineering
+                </Link>
+                <Link href="/departments/mechanical" className="hover:text-theme transition">
+                  Mechanical Engineering
+                </Link>
+              </div>
             </div>
           </div>
-
-          {/* CORE ENGINEERING */}
-          <div>
-            <h3 className="text-theme font-bold mb-4 border-b pb-2">
-              Core Engineering
-            </h3>
-
-            <div className="flex flex-col gap-2 text-sm">
-              <Link href="/departments/informationtechnology/" className="hover:text-theme transition">
-                Information Technology
-              </Link>
-              <Link href="/departments/electricalcommunication/" className="hover:text-theme transition">
-                Electronics & Communication Engineering
-              </Link>
-              <Link href="/departments/electricelectronic/" className="hover:text-theme transition">
-                Electrical & Electronics Engineering
-              </Link>
-              <Link href="/departments/civil/" className="hover:text-theme transition">
-                Civil Engineering
-              </Link>
-              <Link href="/departments/mechanical/" className="hover:text-theme transition">
-                Mechanical Engineering
-              </Link>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

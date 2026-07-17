@@ -1,145 +1,279 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Phone } from "lucide-react";
+import React from 'react';
+import Image from 'next/image';
 
-const DataScience = () => {
-  const [mounted, setMounted] = useState(false);
+// 1. TypeScript Interfaces
+interface Course {
+  id: string;
+  title: string;
+  status: 'OPEN' | 'LIMITED' | 'FULL';
+  availableSeats: number;
+  totalSeats: number;
+}
 
-  const links = [
-    { title: "Artificial Intelligence", count: "01" },
-    { title: "Cyber Security", count: "02" },
-    { title: "Internet of Things", count: "03" },
-      
-  ];
+interface CompanyLogo {
+  name: string;
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+// 2. Mock Data (Updated for Data Science context)
+const courseData: Course[] = [
+  { id: 'DS-501', title: 'Advanced Statistical Inference & Modeling', status: 'OPEN', availableSeats: 18, totalSeats: 85 },
+  { id: 'DS-520', title: 'Big Data Engineering & Distributed Systems', status: 'LIMITED', availableSeats: 3, totalSeats: 60 },
+  { id: 'DS-610', title: 'MLOps & Production Data Pipelines', status: 'FULL', availableSeats: 0, totalSeats: 45 },
+  { id: 'DS-505', title: 'Time Series Forecasting & Predictive Analytics', status: 'OPEN', availableSeats: 22, totalSeats: 90 },
+];
 
-  if (!mounted) return null;
+const corporatePartners: CompanyLogo[] = [
+  { name: 'Snowflake' },
+  { name: 'Databricks' },
+  { name: 'Palantir' },    
+  { name: 'Google Cloud' },
+  { name: 'AWS' },
+  { name: 'Scale AI' },
+];
+
+export default function DataScience() {
+  
+  // Semantic status badges mapped to design-system variables where possible
+  const getStatusBadge = (status: Course['status']) => {
+    switch (status) {
+      case 'OPEN':
+        return (
+          <span className="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-green-700 bg-green-50 rounded-full border border-green-200">
+            OPEN
+          </span>
+        );
+      case 'LIMITED':
+        return (
+          <span className="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-yellow-700 bg-yellow-50 rounded-full border border-yellow-200">
+            LIMITED
+          </span>
+        );
+      case 'FULL':
+        return (
+          <span className="inline-block px-3 py-1 text-[11px] font-bold tracking-wider text-theme-2 bg-rose-50 rounded-full border border-rose-200">
+            FULL
+          </span>
+        );
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[var(--theme-bg-light)] text-slate-700 py-24 px-6 font-sans">
-      
-      {/* GRID BACKGROUND */}
-     
-
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="bg-theme-bg-light/40 py-12 px-4 md:px-8 max-w-7xl mx-auto font-sans antialiased text-body-text animate-fade-in-up">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12  ">
-          
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-8 flex flex-col gap-10 max-w-3xl">
-            
-            {/* TITLE BLOCK */}
-            <header className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-[var(--color-theme-2)]/30 bg-[var(--color-theme-2)]/10 text-[var(--color-theme-2)] text-xs font-black uppercase tracking-[0.2em]o">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-theme-2)] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-theme-2)]"></span>
-                </span>
-               Data Science
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold mt-4 leading-tight tracking-tight text-[var(--theme-color)]">
-               Beyond the Notebook: Taking  {" "}
-                <span className="text-[var(--color-theme)]/60 italic font-medium">
-                Data Science into Production
-                </span>
-              </h1>
-            </header>
-
-            {/* PARAGRAPH */}
-            <p className="pl-7 text-black leading-relaxed font-sans">
-      Welcome to the department of Data Science Malla Reddy University, on behalf of the faculty members, staff, and students the field of Data Science is a diverse field which has a significant role in the development of cutting edge technology. The curriculum at the Department of Data Science is meticulously planned and continuously updated in way to incorporate the various demands of the IT industry trends. An exposure to real world problems in this era of technology is a must and every student is provided with the right environment to shape into a confident individual having the necessary skill set to fit in any role at the industrial market.
-            </p>
-
-            {/* IMAGE */}
-            <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
-              <img
-                src="/departments/ds.png"
-                alt="AI Visualization"
-                className="w-full h-[300px] object-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute bottom-5 left-5 z-20">
-               
-              </div>
-            </div>
-
-            {/* SECOND PARAGRAPH */}
-            <p className="text-black leading-relaxed font-sans">
-he excellent infrastructure and the highly qualified faculty with huge expertise in the department lay the foundation for a professional learning experience, and the department ensures a career-oriented future through Industry internships, certification courses, and workshops. Higher Studies is a strongly recommended option for students with research aptitude and the department makes every effort to nurture this by grooming them for a research-oriented career. The members of the department are known for their unmatched determination and academic excellence.
-            </p>
+        {/* LEFT SIDEBAR CONTAINER */}
+        <aside className="lg:col-span-3 space-y-6">
+          {/* Other Specializations Menu */}
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-xs">
+            <h3 className="text-xs font-bold tracking-wider text-theme uppercase mb-4">
+              DS Specializations
+            </h3>
+            <ul className="space-y-3 text-sm font-medium text-theme">
+              <li className="flex items-center gap-3 hover:text-theme-2 cursor-pointer transition-colors duration-200">
+                <span className="text-blue">📈</span> Quantitative Finance
+              </li>
+              <li className="flex items-center gap-3 hover:text-theme-2 cursor-pointer transition-colors duration-200">
+                <span className="text-purple">🧬</span> Genomic Data Science
+              </li>
+              <li className="flex items-center gap-3 hover:text-theme-2 cursor-pointer transition-colors duration-200">
+                <span className="text-teal">🌐</span> Spatial & GIS Analytics
+              </li>
+              <li className="flex items-center gap-3 hover:text-theme-2 cursor-pointer transition-colors duration-200">
+                <span className="text-yellow">🕵️‍♂️</span> Fraud & Risk Intelligence
+              </li>
+            </ul>
           </div>
 
-          {/* RIGHT SIDEBAR */}
-          <aside className="lg:col-span-4">
-            <div className="sticky top-24">
-              
-              <div className="bg-[#070707] border border-slate-800 rounded-2xl p-6 space-y-10 shadow-lg">
-                
-                {/* NAV */}
-                <div>
-                  <h3 className="text-xl font-extrabold text-white uppercase tracking-widest mb-6">
-                    Computer Science and Engineering
-                  </h3>
+          {/* Highlight Notice Card using Pink Accent */}
+          <div className="bg-gradient-to-br from-white to-rose-50/30 p-6 rounded-xl border-l-4 border-theme-2 shadow-xs relative overflow-hidden">
+            <h3 className="text-base font-bold text-theme mb-1">Notice</h3>
+            <p className="text-sm text-body-text">Spark Cluster Quota Reset</p>
+            <span className="absolute -right-2 -bottom-2 text-theme-2/10 font-bold text-5xl pointer-events-none select-none">!</span>
+          </div>
+        </aside>
 
-                  <nav className="space-y-3">
-                    {links.map((link) => (
-                      <a
-                        key={link.count}
-                        href="#"
-                        className="group flex items-center justify-between px-3 py-3 rounded-lg hover:bg-slate-900 transition"
-                      >
-                        <div className="flex items-center gap-3">
-                          <span className="text-[30px] font-sans text-white group-hover:text-[var(--color-theme-2)]">
-                            [{link.count}]
-                          </span>
-                          <span className="text-sm font-bold text-white group-hover:text-theme-2">
-                            {link.title}
-                          </span>
-                        </div>
-                        <span className="opacity-0 group-hover:opacity-100 text-[var(--color-theme-2)]">
-                          →
-                        </span>
-                      </a>
-                    ))}
-                  </nav>
-                  
-                </div>
+        {/* RIGHT MAIN CONTENT SECTION */}
+        <main className="lg:col-span-9 bg-white p-6 md:p-8 rounded-xl border border-gray-100 shadow-xs space-y-10">
+          
+          {/* TOP SECTION: Mission Text & Image Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+            {/* Text Content Column */}
+            <div className="md:col-span-7 flex flex-col justify-center">
+              {/* Heading with Pink Accent Line */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-[3px] bg-theme-2 shrink-0 rounded-full" />
+                <h2 className="text-2xl md:text-3xl font-bold text-theme tracking-tight">
+                  Data Science Vision
+                </h2>
+              </div>
 
-                {/* CONTACT */}
-                <div className="p-5 rounded-xl bg-theme border border-white space-y-6">
-                  <div className="pt-2">
-                    <h5 className="text-sm font-extrabold text-white uppercase tracking-widest mb-3">
-                      Contact Node
-                    </h5>
-
-                    <a
-                      href="tel:+919876543210"
-                      className="flex items-center justify-between bg-theme border border-white rounded-lg px-3 py-3 hover:bg-slate-900 transition"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Phone className="h-4 w-4 text-[var(--color-theme-2)]" />
-                        <span className="text-sm font-bold text-white  font-sans">
-                          +919990000000
-                        </span>
-                      </div>
-
-                      
-                    </a>
-                  </div>
-                </div>
-
+              {/* Mission Paragraphs */}
+              <div className="space-y-4 text-sm md:text-base leading-relaxed">
+                <p className="font-semibold text-theme">
+                  Our mission is to cultivate elite data practitioners capable of transforming massive, unstructured datasets into predictive models and actionable operational intelligence.
+                </p>
+                <p className="text-body-text">
+                  We blend foundational statistical mechanics with cutting-edge engineering paradigms. From real-time stream processing to predictive macro-analytics, our graduates establish the data infrastructure powering tomorrow's market leaders.
+                </p>
               </div>
             </div>
-          </aside>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default DataScience;
+            {/* Collaborative Workspace Image Column */}
+            <div className="md:col-span-5 flex items-center justify-center">
+              <div className="relative w-full h-[240px] md:h-full min-h-[240px] rounded-xl overflow-hidden shadow-xs bg-theme-bg-light">
+                <Image
+                  src="/path-to-your-ds-lab-image.jpg"
+                  alt="Data Analytics Laboratory"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr className="border-gray-100" />
+
+          {/* MIDDLE SECTION: Core Course Availability Table */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-theme tracking-tight">
+                Data Science Availability
+              </h3>
+              
+              {/* Live Update Indicator */}
+              <div className="flex items-center gap-1.5 px-3 py-1 bg-theme-bg-light rounded-full text-[11px] font-semibold text-theme shadow-xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
+                </span>
+                Live Tracking
+              </div>
+            </div>
+
+            {/* Responsive Table Container */}
+            <div className="overflow-x-auto rounded-xl border border-gray-100 bg-white shadow-xs">
+              <table className="w-full border-collapse text-left min-w-[600px]">
+                <thead>
+                  <tr className="bg-theme text-white text-xs font-bold tracking-wider uppercase">
+                    <th className="py-3.5 px-6 w-[18%] text-center">Course ID</th>
+                    <th className="py-3.5 px-6 w-[45%]">Course Title</th>
+                    <th className="py-3.5 px-6 w-[17%] text-center">Status</th>
+                    <th className="py-3.5 px-6 w-[20%] text-center">Available Seats</th>
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y divide-gray-100">
+                  {courseData.map((course) => (
+                    <tr 
+                      key={course.id} 
+                      className="group bg-white hover:bg-theme-bg-light/40 transition-colors duration-150 ease-in-out cursor-pointer"
+                    >
+                      <td className="py-4 px-6 text-center font-mono text-sm font-semibold text-theme">
+                        {course.id}
+                      </td>
+                      <td className="py-4 px-6 text-sm font-medium text-theme group-hover:text-theme-2 transition-colors duration-150">
+                        {course.title}
+                      </td>
+                      <td className="py-4 px-6 text-center align-middle">
+                        {getStatusBadge(course.status)}
+                      </td>
+                      <td className="py-4 px-6 text-center font-mono text-sm font-semibold text-theme">
+                        {course.availableSeats} <span className="text-gray-300 mx-1">/</span> {course.totalSeats}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <hr className="border-gray-100" />
+
+          {/* BOTTOM SECTION: Placement & Career Outcomes */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-theme tracking-tight">
+              Analytics Placements & Data Horizons
+            </h3>
+
+            {/* Performance Layout Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Primary Highlights Card Anchored by Deep Navy with Pink highlights */}
+              <div className="md:col-span-2 bg-theme text-white rounded-xl p-8 flex flex-col justify-between min-h-[220px] shadow-xs relative overflow-hidden">
+                <div className="z-10">
+                  <h4 className="text-lg font-bold text-theme-2 mb-2">
+                    Research Cohort Performance
+                  </h4>
+                  <p className="text-sm text-footer-text-color/80 max-w-lg font-light leading-relaxed">
+                    Our data scientists continue to architect core infrastructure, engineer production telemetry, and lead quantitative strategy groups globally.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10 mt-6 z-10">
+                  <div>
+                    <div className="text-3xl md:text-4xl font-black tracking-tight text-white">96%</div>
+                    <div className="text-[10px] uppercase tracking-widest text-footer-text-color/60 mt-0.5 font-bold">
+                      Industry Hire Rate
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-black tracking-tight text-theme-2">$168k</div>
+                    <div className="text-[10px] uppercase tracking-widest text-footer-text-color/60 mt-0.5 font-bold">
+                      Median Base Package
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/[0.02] rounded-full pointer-events-none" />
+              </div>
+
+              {/* Individual Metrics Column */}
+              <div className="flex flex-col gap-4 justify-between">
+                <div className="bg-theme-bg-light/60 rounded-xl p-5 flex flex-col justify-center h-full border border-gray-100 shadow-xs">
+                  <span className="text-[10px] font-bold text-body-text uppercase tracking-wider mb-1 block">
+                    Kaggle Grandmasters / Patents
+                  </span>
+                  <span className="text-2xl font-black text-theme">
+                    14 Achieved
+                  </span>
+                </div>
+
+                <div className="bg-theme-bg-light/60 rounded-xl p-5 flex flex-col justify-center h-full border border-gray-100 shadow-xs">
+                  <span className="text-[10px] font-bold text-body-text uppercase tracking-wider mb-1 block">
+                    Enterprise Data Partners
+                  </span>
+                  <span className="text-2xl font-black text-theme-2">
+                    40+ Infrastructure Labs
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Nested Corporate Logo Frame */}
+            <div className="bg-theme-bg-light/30 border border-gray-100 rounded-xl p-6">
+              <h4 className="text-center text-[10px] uppercase tracking-[0.25em] font-bold text-body-text/60 mb-4">
+                Our Graduates Innovate At
+              </h4>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 items-center justify-items-center">
+                {corporatePartners.map((partner, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white border border-gray-100 rounded-lg py-2.5 w-full text-center text-xs font-bold text-theme hover:text-theme-2 transition-colors duration-200 shadow-xs select-none"
+                  >
+                    {partner.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </section>
+  );
+}

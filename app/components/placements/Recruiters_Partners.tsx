@@ -129,7 +129,7 @@ export default function Recruiters_Partners() {
                     className="h-[100px] bg-white/[0.03] border border-white/5 flex items-center justify-center p-4 rounded-2xl backdrop-blur-sm transition-all duration-300 hover:border-[var(--theme-color2)]/40 hover:shadow-[0_0_20px_rgba(233,30,99,0.25)]"
                   >
                     <img
-                      src={item.src}
+                        src={item.src}
                       alt={item.name}
                       className="max-h-8 opacity-70 hover:opacity-100 transition duration-300"
                     />

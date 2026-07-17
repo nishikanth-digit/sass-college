@@ -1,24 +1,28 @@
-import React from 'react'
-import PlacementHero from '../components/placements/PlacementHero'
-import AboutPlacements from '../components/placements/AboutPlacements'
-import PlacementTeam from '../components/placements/PlacementTeam'
-import Recruiters_Partners from '../components/placements/Recruiters_Partners'
-import Statistics from '../components/placements/Statistics'
+import React from 'react';
+import RecruitersPartners from '../components/placements/Recruiters_Partners'
+// import AboutPlacements from '../components/placements/AboutPlacements'
+import Places from '../components/placements/Places'
+import Statistics from '../components/placements/Statistics';
 import CareerGuidance from '../components/placements/CareerGuidance'
-import Study_Aboard from '../components/placements/Study_Aboard'
 
-const page = () => {
+// import PlacementHero from '../components/placements/PlacementHero';
+
+
+// import Study_Aboard from '../components/placements/Study_Aboard'
+
+const Page = () => {
   return (
     <>
-      <PlacementHero />
-      <AboutPlacements />
-      <PlacementTeam />
-      <Recruiters_Partners />
+    {/* <PlacementHero /> */}
+      <RecruitersPartners />
+      {/* <AboutPlacements /> */}
+      <Places />
       <Statistics />
       <CareerGuidance />
-      <Study_Aboard />
+ 
+      {/* <Study_Aboard /> */}
     </>
   )
 }
 
-export default page
+export default Page;

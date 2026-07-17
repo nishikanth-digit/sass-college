@@ -68,10 +68,31 @@ export default function Footer() {
             title="Resources"
             links={["Digital Library", "Student Portal", "Research Labs", "Smart Classrooms", "Innovation Hub", "E-Learning"]}
           />
-          <FooterLinkColumn
-            title="Campus & Career"
-            links={["Hostel", "Sports", "Transport", "Placements", "Blog", "Feedback", "Contact"]}
-          />
+          
+          {/* Custom Column Rendered Directly to Support the Custom Link Markup */}
+          <div>
+            <h4 className="font-bold mb-4 text-sm uppercase tracking-wider flex items-center gap-2">
+              <span className="w-1 h-4 bg-theme-2 rounded-full"></span>
+              Campus & Career
+            </h4>
+            <ul className="space-y-3">
+              {["Hostel", "Sports", "Transport", "Placements", "Blog", "Feedback", "Contact"].map((link) => (
+                <li key={link} className="flex items-center gap-3 group cursor-pointer">
+                  <div className="w-1.5 h-1.5 rounded-full bg-theme-2/40 transition-all duration-300 group-hover:w-3 group-hover:bg-theme-2" />
+                  <Link href="#" className="text-footer-text/70 text-sm hover:text-white transition-colors font-medium">
+                    {link}
+                  </Link>
+                </li>
+              ))}
+              {/* Your New Added Link */}
+              <li className="flex items-center gap-3 group cursor-pointer">
+                <div className="w-1.5 h-1.5 rounded-full bg-theme-2/40 transition-all duration-300 group-hover:w-3 group-hover:bg-theme-2" />
+                <Link href="/abroad" className="text-sm hover:text-white text-footer-text/70 transition font-medium">
+                  Abroadstudies
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <hr className="my-4 border-white/10" />
@@ -87,7 +108,7 @@ export default function Footer() {
             <div className="flex flex-wrap items-center gap-y-2 mb-3">
                <span className="text-sm font-bold text-white/90 mr-4 min-w-[100px]">CSE Specializations:</span>
                <div className="flex flex-wrap items-center gap-x-3 text-sm">
-                  {["Computer Science & Engineering", "Artificial Intelligence & Machine Learning (AI&ML)","Internet Of Things (IOT)" ,"Data Science","Cyber Security","Cloud Computing"].map((link, index, array) => (
+                  {["Computer Science & Engineering", "Artificial Intelligence & Machine Learning (AI&ML)", "Internet Of Things (IOT)", "Data Science", "Cyber Security", "Cloud Computing"].map((link, index, array) => (
                     <div key={link} className="flex items-center gap-3 group">
                       <Link href="#" className="hover:text-white text-footer-text/70 transition-colors">{link}</Link>
                       {index !== array.length - 1 && <span className="w-[1px] h-3 bg-white/20"></span>}
@@ -99,7 +120,7 @@ export default function Footer() {
             <div className="flex flex-wrap items-center gap-y-2">
                <span className="text-sm font-bold text-white/90 mr-4 min-w-[100px]">Core Engineering:</span>
                <div className="flex flex-wrap items-center gap-x-3 text-sm">
-                  {["Information Technology","Electrical & Electronics Engineering","Electronics & Communication Engineering",, "CIVIL", "Mechanical"].map((link, index, array) => (
+                  {["Information Technology", "Electrical & Electronics Engineering", "Electronics & Communication Engineering", "CIVIL", "Mechanical"].map((link, index, array) => (
                     <div key={link} className="flex items-center gap-3">
                       <Link href="#" className="hover:text-white text-footer-text/70 transition-colors">{link}</Link>
                       {index !== array.length - 1 && <span className="w-[1px] h-3 bg-white/20"></span>}

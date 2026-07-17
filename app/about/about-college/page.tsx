@@ -4,9 +4,11 @@ import About from '../../components/about/About'
 import MissionVision from '../../components/about/MissionVision'
 
 
+
 const page = () => {
   return (
     <>
+  
       <AboutHero />
       <About />
       <MissionVision />
