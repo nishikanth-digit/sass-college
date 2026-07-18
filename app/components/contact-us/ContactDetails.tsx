@@ -8,20 +8,29 @@ const ContactDetails = () => {
     {
       icon: <Phone size={20} />,
       label: "Call Us",
-      values: ["+91 999 000 0000", "+91 888 000 0000"],
-      href: "tel:+919990000000",
+      // Restructured to match values directly to their respective action links
+      channels: [
+        { value: "+91 999 000 0000", href: "tel:+919990000000" },
+        { value: "+91 888 000 0000", href: "tel:+918880000000" }
+      ],
     },
     {
       icon: <Mail size={20} />,
       label: "Email Us",
-      values: ["support@company.com", "info@company.com"],
-      href: "mailto:support@company.com",
+      channels: [
+        { value: "support@company.com", href: "mailto:support@company.com" },
+        { value: "info@company.com", href: "mailto:info@company.com" }
+      ],
     },
     {
       icon: <MapPin size={20} />,
       label: "Our Office",
-      values: ["#1-90/2/G/1/21, 4th Floor, Hitech City Rd, near Metro Pillar 1761, Madhapur, Hyderabad, 500081"],
-      href: "https://maps.google.com",
+      channels: [
+        { 
+          value: "#1-90/2/G/1/21, 4th Floor, Hitech City Rd, near Metro Pillar 1761, Madhapur, Hyderabad, 500081", 
+          href: "https://maps.google.com/?q=Hitech+City+Rd+Madhapur+Hyderabad+500081" 
+        }
+      ],
     },
   ];
 
@@ -30,9 +39,8 @@ const ContactDetails = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {contactData.map((item, index) => (
-            <a
+            <div
               key={index}
-              href={item.href}
               className="group relative flex items-start gap-5 p-7 bg-white rounded-2xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-15px_rgba(233,30,99,0.15)] border border-theme/10 overflow-hidden transition-all duration-300 hover:-translate-y-2 animate-fadeUp"
               style={{ animationDelay: `${index * 150}ms` }}
             >
@@ -47,25 +55,28 @@ const ContactDetails = () => {
               </div>
 
               {/* Text Content */}
-              <div className="flex flex-col relative z-10">
+              <div className="flex flex-col relative z-10 w-full">
                 <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-body-text group-hover:text-theme-2 transition-colors">
                   {item.label}
                 </span>
                 
                 <div className="mt-3 flex flex-col gap-1.5">
-                  {item.values.map((val, idx) => (
-                    <span 
+                  {item.channels.map((channel, idx) => (
+                    <a 
                       key={idx} 
-                      className="text-[15px] leading-snug font-bold text-theme group-hover:text-theme transition-colors"
+                      href={channel.href}
+                      target={item.label === "Our Office" ? "_blank" : undefined}
+                      rel={item.label === "Our Office" ? "noopener noreferrer" : undefined}
+                      className="text-[15px] leading-snug font-bold text-theme hover:text-theme-2 transition-colors block w-fit"
                     >
-                      {val}
-                    </span>
+                      {channel.value}
+                    </a>
                   ))}
                 </div>
               </div>
 
               <div className="absolute bottom-0 left-0 w-full h-[2.5px] bg-theme-2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </a>
+            </div>
           ))}
         </div>
       </div>
